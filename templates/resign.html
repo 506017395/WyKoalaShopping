@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/resign.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/resign.js' %}"></script>
+    <script type="text/javascript">
+        $(function () {
+            // 刷新验证码
+            function code() {
+                $.ajax({
+                    type: "get",
+                    url: "/codeimage/",
+                    dataType: "json",
+                    success: function (data) {
+                        $("#put1").attr("src", data);
+                    }
+                });
+            }
+
+            code();
+            $("#put1").click(function () {
+                code()
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div id="top">
+    <div class="left"><h1>邮箱帐号</h1><span>已有帐号？去<a href="#"><i>登入</i></a></span></div>
+
+</div>
+
+<!-- begin conter -->
+<div id="conter">
+    <form action="" method="post">
+        {% csrf_token %}"
+        <p>注册帐号</p>
+        <div class="div1" style="position: relative;">
+            <span><i>帐号：</i></span><input type="text" name="account" placeholder="6-18位字母数字组合" id="text"/>
+            <select id="account_email">
+                <option selected="selected" value="@163.com">@163.com</option>
+                <option value="@126.com">@126.com</option>
+                <option value="@yeah.net">@yeah.net</option>
+            </select>
+            <div class="text1"></div>
+            <div class="text2"></div>
+        </div>
+        <div class="div2">
+            <span><i>密码：</i></span><input type="password" name="password" placeholder="6-16位密码，区分大小写" id="pwd"/>
+            <div class="pwd"></div>
+            <div class="pwd2"></div>
+        </div>
+        <div class="div3">
+            <span><i>确认密码：</i></span><input type="password" placeholder="再次输入密码" id="nextpwd"/>
+            <div class="nextpwd"></div>
+            <div class="nextpwd2"></div>
+        </div>
+        <div class="div4">
+            <span><i>手机号：</i></span><input type="text" name="tel" placeholder="11位手机号" id="phone"/>
+            <div class="phone"></div>
+            <div class="phone2"></div>
+        </div>
+        <div class="div5">
+            <span></span><b>忘记密码时，可通过手机快速找到密码</b>
+        </div>
+        <div class="div6">
+            <span><i>随机验证码：</i></span><input type="text" placeholder="输入随机验证码" id="txt"/>
+            {#                <input type="text" id="put1" />#}
+            {#                <input type="button" value="获取验证码"  id="put2"/>#}
+            <img src="" alt="" id="put1">
+            <div class="txt"></div>
+            <div class="txt2"></div>
+        </div>
+        <div class="div7">
+            <span></span><input type="button" value="注  册" id="btn"/>
+        </div>
+        <div class="div8">
+            <span></span><b>用户注册及代表同意《服务条款》和《网络游戏用户隐私保</b>
+            <span></span><b>护和个人信息利用政策》</b>
+        </div>
+    </form>
+</div>
+<!-- end conter -->
+
+<div id="foot">
+    <div class="footer">
+        <span>About&nbsp;NetEase&nbsp;-&nbsp;公司简介&nbsp;-&nbsp;联系方式&nbsp;-&nbsp;OAuth2.0认证&nbsp;-&nbsp;招聘信息&nbsp;-&nbsp;客户服务&nbsp;-&nbsp;相关法律&nbsp;-&nbsp;网络营销</span>
+        <p>网易公司版权所有&nbsp;*1997-2016</p>
+    </div>
+
+</div>
+
+
+<p>{{ ran_code }}</p>
+</body>
+</html>
