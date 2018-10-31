@@ -1,7 +1,9 @@
+import hashlib
 import io
 import os
 import random
 import json
+import uuid
 
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -15,9 +17,12 @@ from Mall.models import User
 
 
 def index(request):
-    username = request.COOKIES.get("username")  # 获取登录状态
-
-    return render(request, "index.html", context={"username": username})
+    token = request.COOKIES.get("token")  # 获取token
+    user_set = User.objects.filter(token=token)
+    if user_set.exists():
+        user = user_set.first()
+        return render(request, 'index.html', context={'username': user.uname})
+    return render(request, "index.html")
 
 
 # 登录
@@ -25,7 +30,28 @@ def login(request):
     if request.method == "GET":
         return render(request, "login.html")
     elif request.method == "POST":
-        return None
+        data_post = request.POST
+        uname = data_post.get("username")
+        upwd = generate_password(data_post.get("pwd"))
+
+        user_aa = User.objects.first().uaccount
+        user_a = User.objects.first().upwd
+        isTrue = upwd == user_a
+        isT = user_aa == uname
+        user_set = User.objects.filter(uaccount=uname, upwd=upwd)
+        if user_set.exists():
+            user = user_set.first()
+            response = redirect("K:index")
+            response.set_cookie("token", user.token)
+            return response
+        return render(request, "login.html")
+
+
+# 注销
+def logout(request):
+    response = redirect("K:index")
+    response.delete_cookie("token")
+    return response
 
 
 # 注册
@@ -34,14 +60,27 @@ def resign(request):
         return render(request, "resign.html")
     elif request.method == "POST":
         data_post = request.POST
-        user_info = User.createUser(data_post.get("account"), data_post.get("password"), data_post.get("tel"))
-
-        if user_info:
+        # 使用uuid生成token
+        token = uuid.uuid5(uuid.uuid4(), 'test')
+        # a, b, c = data_post.get("account"), data_post.get("password"), data_post.get("tel")
+        user_info = User.createUser(data_post.get("account") + data_post.get("selectEmail"),
+                                    generate_password(data_post.get("password")),
+                                    data_post.get("tel"),
+                                    token)
+        try:
+            user_info.save()
             response = redirect("K:index")
-            response.set_cookie("account", user_info.uaccount)
+            response.set_cookie("token", user_info.token)
             return response
+        except Exception as e:
+            return render(request, "resign.html")
 
-        return None
+
+# 密码加密
+def generate_password(password):
+    sha = hashlib.sha512()
+    sha.update(password.encode('utf-8'))
+    return sha.hexdigest()
 
 
 # 验证码

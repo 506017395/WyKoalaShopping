@@ -40,6 +40,12 @@ INSTALLED_APPS = [
     'Mall.apps.MallConfig',
 ]
 
+# 消息弾窗
+MIDDLEWARE_CLASSES = [
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

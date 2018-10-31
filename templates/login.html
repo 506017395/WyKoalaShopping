@@ -1,208 +1,414 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<script type="text/javascript" src="{% static 'js/jquery-1.12.0.js' %}" ></script>
-	    <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}" ></script>
-		<script>
-			$(function(){
-				//判断是否存在该用户(匹配用户名和密码是否一致)
-				$("#btn").click(function(){
-					//判断输入框是否输入完成
-					if($("#username").val()==""){
-						$(".div").animate({height:35},100)
-						$(".right_top").animate({height:112},100)
-						$(".center").animate({height:382},100)
-						$("#prompt").show();
-						$("#prompt").html("请输入账号")
-						$("#username").focus(function(){
-							$(".div").animate({height:10},100)
-						    $(".right_top").animate({height:93},100)
-						    $(".center").animate({height:362},100)
-							$("#prompt").hide();
-						})
-					}else if($("#pwd").val() == ""){
-						$(".div").animate({height:35},100)
-						$(".right_top").animate({height:112},100)
-						$(".center").animate({height:382},100)
-						
-						$("#prompt").show();
-						$("#prompt").html("请输入密码")
-						$("#pwd").focus(function(){
-							$(".div").animate({height:10},100)
-						    $(".right_top").animate({height:93},100)
-						    $(".center").animate({height:362},100)
-							$("#prompt").hide();
-						})
-					}else{
-						var users = $.cookie("users");//表示不有没有  都赋值给  user
-					if(users){
-						users = JSON.parse(users);//cookie中所有注册过的用户
-						var isTrue = false;//表示是否存在该用户
-						for(var i=0; i<users.length;i++){
-							if(users[i].name==$("#username").val() && users[i].pwd == $("#pwd").val()){
-								console.log("登入成功");
-								var timer = setTimeout(function(){
-									location.href = "index.html"
-								},3000);
-								isTrue = true;
-							}
-						}
-						if(!isTrue){
-							console.log("用户名或密码错误，请重新输入")
-							$(".div").animate({height:35},100)
-						    $(".right_top").animate({height:112},100)
-						    $(".center").animate({height:374},100)
-						   
-						    $("#prompt").show();
-						     $("#prompt").html("用户名或密码错误")
-						    $("#pwd").focus(function(){
-							    $(".div").animate({height:10},100)
-						        $(".right_top").animate({height:93},100)
-						        $(".center").animate({height:360},100)
-							    $("#prompt").hide();
-						    })
-						    $("#username").focus(function(){
-							    $(".div").animate({height:10},100)
-						        $(".right_top").animate({height:93},100)
-						        $(".center").animate({height:360},100)
-							    $("#prompt").hide();
-						})
-						}
-					}
-					else {
-						console.log("不存在该用户，请先注册");
-					}
-					}
-					
-				})
-			})
-		</script>
-		<style>
-		    *{margin: 0 auto;}
-			#top{height: auto;width: 100%;}
-			#top .header{height: 100px; width: 1000px;
-			            background: url({% static 'img/1.png' %}) no-repeat center left;}
-			#top .header img{float: right;}  
-			#container{height: 520px; width: 100%;background: url(http://haitao.nos.netease.com/it2ai5dx42_1920_520.jpg?imageView&thumbnail=1920x0&quality=90) no-repeat left;
-			          background-position: center top;
-                      background-position-x: 50%; position: relative;}
-            #container .center{position: absolute; height: 362px; width: 500px;
-                               border: 1px solid whitesmoke; left: 49%; top: 80px;
-                               background: #fff;}     
-		    #container .center .left{float: left; 
-		                             height: 354px; width: 350px;
-		                              position: relative;}
-		    #container .center .left h3{margin-left: 40px; padding: 30px 0px;}
-		    #username{display: block; height: 30px; width: 220px; padding-left: 40px;}
-		    #pwd{display: block;height: 30px; width: 220px; margin-top: 20px;
-		        padding-left: 40px;} 
-		    .user_img img{height: 30px; width: 30px;}
-		    .user_img b{display: inline-block; font-weight: normal;
-		               color: #ccc; position: absolute; padding: 8px 0px;}
-		    .user_img{position: absolute; top: 89px; left: 44px;
-		              border-right: 1px solid #ccc; padding-right: 5px;
-		               padding-left: 5px;}
-		    .pwd_img img{height: 30px; width: 30px;}
-		    .pwd_img b{display: inline-block; font-weight: normal; color: #ccc;
-		               position: absolute; padding: 8px 0px;}
-		    .pwd_img{position: absolute; top: 145px; left: 44px;
-		             border-right: 1px solid #ccc; padding-right: 5px;
-		              padding-left: 5px;}
-		    .div{margin-left: 0px; height: 15px; width: 220px; padding: 20px 0px 20px 44px;
-		           color: #ccc; position: relative;}
-		    #container .center .left .div #prompt{position: absolute; height: 15px; width: 240px; padding: 0px; top: 60%; margin: 0px;
-		                                          text-align:left; color: red; background: url({% static 'img/close.png' %}) no-repeat left;
-		                                          background-size:contain ; margin-left: 20px; padding-left: 20px; display: none;}
-		    #checkbox{height: 15px; width: 15px; display: inline-block; float: left;}
-		    .checkbox_left{ font-size: 12px; height: 15px; width: auto;
-		                  float: left; padding-left: 10px;}
-		    .checkbox_right{ font-size: 12px;float: right;}
-		    #btn{margin-left: 44px; width: 264px; height: 40px; background: red;
-		          border: 0px; border-radius: 5px;}
-		    #container .center .left p{margin-left: 44px; color:#666666 ;
-		                              font-size: 12px; padding: 20px 0px; 
-		                              text-align: center;}
-		    #container .center .left p a
-		               {text-decoration:   none; color: #51b8f1;}
-		    #container .center .left .last
-		             {width: 350px; height: auto; border-top: 1px solid #ccc; height: 30px;}
-		    #container .center .left .last span
-		             {display: inline-block; float: left; font-size: 12px; }
-		    #container .center .left .last img
-		        {height: 25px; width: 25px;padding: 0px 10px; margin-top: 2px;}
-		    #container .center .left .last .first{padding: 8px 0px;}
-		    #container .center .left .last .pic
-		                         {border-right: 1px solid #ccc;}
-		    #container .center .right{height: 356px; width: 149px; float: left;}
-		    #container .right .right_top{height: 93px; width: 147px;border-left: 1px solid #ccc;}
-		    #container .right .middle{border-left: 1px solid #ccc;width: 127px; padding-left: 20px;} 
-		    #container .right .right_bottom{height: 156px; width: 147px; border-left: 1px solid #ccc;}
-		    .right .p1{padding-top: 20px ; font-size: 15px;text-align: center;
-		                 color: #dc124e;}
-		    .right .p2{padding-top: 5px ;text-align: center; color: #828282;}
-		    #foot{height: 200px; width: 100%; text-align: center;}
-		    #foot .footer a{text-decoration: none; color: #666666; padding-top: 50px; display: inline-block; padding: 50px 10px 0px 10px; }
-		    #foot .footer p{font-size: 12px; color: #999999; padding-top:10px ;height: 40px; line-height: 28px; }
-		    #foot .footer p img{}
-		    #foot .footer p span{display: inline-block; height: 40px;}
-		</style>
-	</head>
-	<body>
-		<div id="top">
-			<div class="header"><img src="{% static 'img/load1.png' %}"></div>
-		</div>
-		<div id="container">
-			<div class="center">
-				<div class="left">
-					<h3>登入网易邮箱帐号</h3>
-					<input type="text" placeholder="网易邮箱帐号" id="username">
-					<input type="password" placeholder="密码" id="pwd">
-					<span class="user_img"><img src="{% static 'img/user.png' %}"></span>
-					<span class="pwd_img"><img src="{% static 'img/pwd.png' %}"></span>
-					<div class="div">
-						<p id="prompt"></p>
-					   <input type="checkbox" id="checkbox"><span class="checkbox_left">十天内免登入</span>
-					   <span class="checkbox_right">忘记密码?</span>
-				    </div>
-				    <button id="btn">登入</button>
-				    <p>没有网易邮箱？<a href="#">立即免费注册&gt;&gt;</a></p>
-				    <div class="last">
-				    	<span class="first">使用第三方帐号登入：</span>
-				    	<span><img src="{% static 'img/微信.png' %}" class="pic"></span>
-				    	<span><img src="{% static 'img/iconfon-zhifubao.png' %}" class="pic"></span>
-				    	<span><img src="{% static 'img/微博.png' %}" class="pic"></span>
-				    	<span><img src="{% static 'img/qq.png' %}"></span>
-				    </div>
-		    	</div>
-				<div class="right">
-					<div class="right_top"></div>
-					<div class="middle"><img src="{% static 'img/ma.png' %}"></div>
-					<div class="right_bottom">
-						<p class="p1">领取1000元新人礼包</p>
-					    <p class="p2">APP下单更有优惠价</p>
-					</div>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.0.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script>
+        $(function () {
+            //判断是否存在该用户(匹配用户名和密码是否一致)
+            $("#btn").click(function () {
+                //判断输入框是否输入完成
+                if ($("#username").val() == "") {
+                    $(".div").animate({height: 35}, 100)
+                    $(".right_top").animate({height: 112}, 100)
+                    $(".center").animate({height: 382}, 100)
+                    $("#prompt").show();
+                    $("#prompt").html("请输入账号")
+                    $("#username").focus(function () {
+                        $(".div").animate({height: 10}, 100)
+                        $(".right_top").animate({height: 93}, 100)
+                        $(".center").animate({height: 362}, 100)
+                        $("#prompt").hide();
+                    })
+                } else if ($("#pwd").val() == "") {
+                    $(".div").animate({height: 35}, 100)
+                    $(".right_top").animate({height: 112}, 100)
+                    $(".center").animate({height: 382}, 100)
 
-				</div>
-			</div>
-		</div>
-		<div id="foot">
-			<div class="footer">
-				<a href="#">About NetEase</a><span>|</span>
-				<a href="#">公司简介</a><span>|</span>
-				<a href="#">联系方法 </a><span>|</span>
-				<a href="#">友情链接</a><span>|</span>
-				<a href="#">招聘信息</a><span>|</span>
-				<a href="#">客户服务 </a><span>|</span>
-				<a href="#">隐私政策</a><span>|</span>
-				<a href="#">网络营销</a><span>|</span>
-				<a href="#">网站地图</a><span>|</span>
-				<a href="#">网易考拉海购</a>
-				<p><img src="{% static 'img/gongan1.png' %}"> <span>浙公网安备 33010002000066号 &nbsp;&nbsp;&nbsp;增值电信业务经营许可证：浙B2-20090185-3&nbsp;&nbsp;&nbsp; 网络文化经营许可证：浙网文[2016]0155-055号&nbsp;&nbsp;&nbsp; 网易公司版权所有©1997-2016</span></p>
-			    <p><img src="{% static 'img/gongan2.png' %}" style="height: 40px; width: 70px;"><img src="{% static 'img/gongan1.png' %}" style="height: 33px ;width: 54px;"></p>
-			</div>
-		</div>
-	</body>
+                    $("#prompt").show();
+                    $("#prompt").html("请输入密码")
+                    $("#pwd").focus(function () {
+                        $(".div").animate({height: 10}, 100)
+                        $(".right_top").animate({height: 93}, 100)
+                        $(".center").animate({height: 362}, 100)
+                        $("#prompt").hide();
+                    })
+                } else {
+                    $("#form_btn").submit();
+                    {#var users = $.cookie("users");//表示不有没有  都赋值给  user#}
+                    {#if (users) {#}
+                    {#    users = JSON.parse(users);//cookie中所有注册过的用户#}
+                    {#    var isTrue = false;//表示是否存在该用户#}
+                    {#    for (var i = 0; i < users.length; i++) {#}
+                    {#        if (users[i].name == $("#username").val() && users[i].pwd == $("#pwd").val()) {#}
+                    {#            console.log("登入成功");#}
+                    {#            var timer = setTimeout(function () {#}
+                    {#                location.href = "index.html"#}
+                    {#            }, 3000);#}
+                    {#            isTrue = true;#}
+                    {#        }#}
+                    {#    }#}
+                    {#    if (!isTrue) {#}
+                    {#        console.log("用户名或密码错误，请重新输入")#}
+                    {#        $(".div").animate({height: 35}, 100)#}
+                    {#        $(".right_top").animate({height: 112}, 100)#}
+                    {#        $(".center").animate({height: 374}, 100)#}
+                    {##}
+                    {#        $("#prompt").show();#}
+                    {#        $("#prompt").html("用户名或密码错误")#}
+                    {#        $("#pwd").focus(function () {#}
+                    {#            $(".div").animate({height: 10}, 100)#}
+                    {#            $(".right_top").animate({height: 93}, 100)#}
+                    {#            $(".center").animate({height: 360}, 100)#}
+                    {#            $("#prompt").hide();#}
+                    {#        })#}
+                    {#        $("#username").focus(function () {#}
+                    {#            $(".div").animate({height: 10}, 100)#}
+                    {#            $(".right_top").animate({height: 93}, 100)#}
+                    {#            $(".center").animate({height: 360}, 100)#}
+                    {#            $("#prompt").hide();#}
+                    {#        })#}
+                    {#    }}#}
+                    {#else {#}
+                    {#    console.log("不存在该用户，请先注册");}#}
+                }
+            })
+        })
+    </script>
+    <style>
+        * {
+            margin: 0 auto;
+        }
+
+        #top {
+            height: auto;
+            width: 100%;
+        }
+
+        #top .header {
+            height: 100px;
+            width: 1000px;
+            background: url({% static 'img/1.png' %}) no-repeat center left;
+        }
+
+        #top .header img {
+            float: right;
+        }
+
+        #container {
+            height: 520px;
+            width: 100%;
+            background: url(http://haitao.nos.netease.com/it2ai5dx42_1920_520.jpg?imageView&thumbnail=1920x0&quality=90) no-repeat left;
+            background-position: center top;
+            background-position-x: 50%;
+            position: relative;
+        }
+
+        #container .center {
+            position: absolute;
+            height: 362px;
+            width: 500px;
+            border: 1px solid whitesmoke;
+            left: 49%;
+            top: 80px;
+            background: #fff;
+        }
+
+        #container .center .left {
+            float: left;
+            height: 354px;
+            width: 350px;
+            position: relative;
+        }
+
+        #container .center .left h3 {
+            margin-left: 40px;
+            padding: 30px 0px;
+        }
+
+        #username {
+            display: block;
+            height: 30px;
+            width: 220px;
+            padding-left: 40px;
+        }
+
+        #pwd {
+            display: block;
+            height: 30px;
+            width: 220px;
+            margin-top: 20px;
+            padding-left: 40px;
+        }
+
+        .user_img img {
+            height: 30px;
+            width: 30px;
+        }
+
+        .user_img b {
+            display: inline-block;
+            font-weight: normal;
+            color: #ccc;
+            position: absolute;
+            padding: 8px 0px;
+        }
+
+        .user_img {
+            position: absolute;
+            top: 89px;
+            left: 44px;
+            border-right: 1px solid #ccc;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .pwd_img img {
+            height: 30px;
+            width: 30px;
+        }
+
+        .pwd_img b {
+            display: inline-block;
+            font-weight: normal;
+            color: #ccc;
+            position: absolute;
+            padding: 8px 0px;
+        }
+
+        .pwd_img {
+            position: absolute;
+            top: 145px;
+            left: 44px;
+            border-right: 1px solid #ccc;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .div {
+            margin-left: 0px;
+            height: 15px;
+            width: 220px;
+            padding: 20px 0px 20px 44px;
+            color: #ccc;
+            position: relative;
+        }
+
+        #container .center .left .div #prompt {
+            position: absolute;
+            height: 15px;
+            width: 240px;
+            padding: 0px;
+            top: 60%;
+            margin: 0px;
+            text-align: left;
+            color: red;
+            background: url({% static 'img/close.png' %}) no-repeat left;
+            background-size: contain;
+            margin-left: 20px;
+            padding-left: 20px;
+            display: none;
+        }
+
+        #checkbox {
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            float: left;
+        }
+
+        .checkbox_left {
+            font-size: 12px;
+            height: 15px;
+            width: auto;
+            float: left;
+            padding-left: 10px;
+        }
+
+        .checkbox_right {
+            font-size: 12px;
+            float: right;
+        }
+
+        #btn {
+            margin-left: 44px;
+            width: 264px;
+            height: 40px;
+            background: red;
+            border: 0px;
+            border-radius: 5px;
+        }
+
+        #container .center .left p {
+            margin-left: 44px;
+            color: #666666;
+            font-size: 12px;
+            padding: 20px 0px;
+            text-align: center;
+        }
+
+        #container .center .left p a {
+            text-decoration: none;
+            color: #51b8f1;
+        }
+
+        #container .center .left .last {
+            width: 350px;
+            height: auto;
+            border-top: 1px solid #ccc;
+            height: 30px;
+        }
+
+        #container .center .left .last span {
+            display: inline-block;
+            float: left;
+            font-size: 12px;
+        }
+
+        #container .center .left .last img {
+            height: 25px;
+            width: 25px;
+            padding: 0px 10px;
+            margin-top: 2px;
+        }
+
+        #container .center .left .last .first {
+            padding: 8px 0px;
+        }
+
+        #container .center .left .last .pic {
+            border-right: 1px solid #ccc;
+        }
+
+        #container .center .right {
+            height: 356px;
+            width: 149px;
+            float: left;
+        }
+
+        #container .right .right_top {
+            height: 93px;
+            width: 147px;
+            border-left: 1px solid #ccc;
+        }
+
+        #container .right .middle {
+            border-left: 1px solid #ccc;
+            width: 127px;
+            padding-left: 20px;
+        }
+
+        #container .right .right_bottom {
+            height: 156px;
+            width: 147px;
+            border-left: 1px solid #ccc;
+        }
+
+        .right .p1 {
+            padding-top: 20px;
+            font-size: 15px;
+            text-align: center;
+            color: #dc124e;
+        }
+
+        .right .p2 {
+            padding-top: 5px;
+            text-align: center;
+            color: #828282;
+        }
+
+        #foot {
+            height: 200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        #foot .footer a {
+            text-decoration: none;
+            color: #666666;
+            padding-top: 50px;
+            display: inline-block;
+            padding: 50px 10px 0px 10px;
+        }
+
+        #foot .footer p {
+            font-size: 12px;
+            color: #999999;
+            padding-top: 10px;
+            height: 40px;
+            line-height: 28px;
+        }
+
+        #foot .footer p img {
+        }
+
+        #foot .footer p span {
+            display: inline-block;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="top">
+    <div class="header"><img src="{% static 'img/load1.png' %}"></div>
+</div>
+<div id="container">
+    <div class="center">
+        <form action="{% url "K:login" %}" method="post" id="form_btn">
+            {% csrf_token %}
+            <div class="left">
+                <h3>登入网易邮箱帐号</h3>
+                <input type="text" placeholder="网易邮箱帐号" id="username" name="username">
+                <input type="password" placeholder="密码" id="pwd" name="pwd">
+                <span class="user_img"><img src="{% static 'img/user.png' %}"></span>
+                <span class="pwd_img"><img src="{% static 'img/pwd.png' %}"></span>
+                <div class="div">
+                    <p id="prompt"></p>
+                    <input type="checkbox" id="checkbox"><span class="checkbox_left">十天内免登入</span>
+                    <span class="checkbox_right">忘记密码?</span>
+                </div>
+                <button id="btn">登入</button>
+                <p>没有网易邮箱？<a href="{% url "K:resign" %}">立即免费注册&gt;&gt;</a></p>
+                <div class="last">
+                    <span class="first">使用第三方帐号登入：</span>
+                    <span><img src="{% static 'img/微信.png' %}" class="pic"></span>
+                    <span><img src="{% static 'img/iconfon-zhifubao.png' %}" class="pic"></span>
+                    <span><img src="{% static 'img/微博.png' %}" class="pic"></span>
+                    <span><img src="{% static 'img/qq.png' %}"></span>
+                </div>
+            </div>
+        </form>
+        <div class="right">
+            <div class="right_top"></div>
+            <div class="middle"><img src="{% static 'img/ma.png' %}"></div>
+            <div class="right_bottom">
+                <p class="p1">领取1000元新人礼包</p>
+                <p class="p2">APP下单更有优惠价</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="foot">
+    <div class="footer">
+        <a href="#">About NetEase</a><span>|</span>
+        <a href="#">公司简介</a><span>|</span>
+        <a href="#">联系方法 </a><span>|</span>
+        <a href="#">友情链接</a><span>|</span>
+        <a href="#">招聘信息</a><span>|</span>
+        <a href="#">客户服务 </a><span>|</span>
+        <a href="#">隐私政策</a><span>|</span>
+        <a href="#">网络营销</a><span>|</span>
+        <a href="#">网站地图</a><span>|</span>
+        <a href="#">网易考拉海购</a>
+        <p><img src="{% static 'img/gongan1.png' %}"> <span>浙公网安备 33010002000066号 &nbsp;&nbsp;&nbsp;增值电信业务经营许可证：浙B2-20090185-3&nbsp;&nbsp;&nbsp; 网络文化经营许可证：浙网文[2016]0155-055号&nbsp;&nbsp;&nbsp; 网易公司版权所有©1997-2016</span>
+        </p>
+        <p><img src="{% static 'img/gongan2.png' %}" style="height: 40px; width: 70px;"><img
+                src="{% static 'img/gongan1.png' %}" style="height: 33px ;width: 54px;"></p>
+    </div>
+</div>
+</body>
 </html>
