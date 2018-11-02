@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="win-mysql@localhost" uuid="78c6df7f-dc66-4383-ae95-038ff4d25389">
+    <data-source source="LOCAL" name="mysql-server@localhost" uuid="32cfc3db-346c-4bf0-850f-b3d7bea484b0">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://182.254.228.82:3306/koaladb</jdbc-url>
+      <jdbc-url>jdbc:mysql://182.254.228.82:3306/wykoala</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

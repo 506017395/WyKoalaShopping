@@ -8,21 +8,27 @@ import uuid
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from PIL import Image, ImageDraw, ImageFont
+from Mall.models import User, Slideshow
+
 
 # Create your views here.
 
 
 # 网易考拉首页
-from Mall.models import User
-
-
 def index(request):
+    # 获取轮播图数据
+    slideshows = Slideshow.objects.all()
+    result = {
+        "slideshows": slideshows
+    }
+
     token = request.COOKIES.get("token")  # 获取token
-    user_set = User.objects.filter(token=token)
-    if user_set.exists():
+    user_set = User.objects.filter(token=token)  # 根据token查找用户
+    if user_set.exists():  # 判断是否找到用户
         user = user_set.first()
-        return render(request, 'index.html', context={'username': user.uname})
-    return render(request, "index.html")
+        result.update(username=user.uname)
+        return render(request, 'index.html', context=result)
+    return render(request, "index.html", context=result)
 
 
 # 登录
@@ -31,6 +37,7 @@ def login(request):
         return render(request, "login.html")
     elif request.method == "POST":
         data_post = request.POST
+        # 获取post提交的数据
         uname = data_post.get("username")
         upwd = generate_password(data_post.get("pwd"))
 

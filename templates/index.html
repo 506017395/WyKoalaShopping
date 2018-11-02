@@ -5,7 +5,11 @@
     <meta charset="utf-8"/>
     <title></title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}"/>
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "css/swiper.css" %}">
     <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+    <script src="{% static "js/swiper.js" %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/index1.js' %}"></script>
     <style type="text/css">
@@ -287,23 +291,24 @@ border-width: 4px 4px 0;"></i></div>-->
 
     </div>
 </div>
+
 <!--轮播图-->
-<div id="move">
-    <ul class="lunbo"></ul>
-    <div class="dot">
+<div class="swiper-container" id="topSwiper">
+    <div class="swiper-wrapper">
+        {% for slideshow in slideshows %}
+            <div class="swiper-slide">
+                <img src="{% static slideshow.img %}" alt="">
+            </div>
+        {% endfor %}
     </div>
-    <ul class="point">
-        <li class="red"></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-    <div class="left">&lt;</div>
-    <div class="right">&gt;</div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
 </div>
+
+
 <div id="container">
     <ul class="container_ul">
         <!--<span class="ul_span"></span>-->

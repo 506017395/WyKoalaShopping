@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'KoalaShopping.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "KoalaDB",
+        'NAME': "wykoala",
         "USER": "root",
-        "PASSWORD": "xhc666",
+        "PASSWORD": "lzz666",
         "HOST": "182.254.228.82",
         "PORT": "3306"
     }

@@ -137,85 +137,18 @@ $(function () {
     })
 
     //轮播图
-    $.getJSON("../static/json/index.json", function (data) {
 
-        for (i = 0; i < data.length; i++) {
-            var obj = data[i];
-            var li = $("<li><img src=" + obj.img + "/></li>");
-            li.addClass("active")
-            $(".lunbo").append(li);
-        }
-        $(".lunbo li").first().clone().appendTo(".lunbo")
-        var size = $(".lunbo li").length;
-        $(".lunbo").width($(".lunbo li").width() * size);
-//  	var timer;
-        var index = 0;
-        var timer = window.setInterval(function () {
-            index++;
-            move()
-
-        }, 2000);
-
-        function move() {//为什么不要传参
-            if (index < 0) {
-
-                $(".lunbo").css("left", -(size - 1) * 1920); //瞬间移动到第5张图的位置
-                index = size - 2; //即将移动到第4张图
-            }
-            if (index >= size) {
-                $(".lunbo").css("left", 0)
-                index = 1;
-            }
-            $(".lunbo").stop().animate({left: -index * 1920}, 500)
-            $(".point li").eq(index).addClass("red").siblings().removeClass("red")
-            if (index == size - 1) {
-                $(".point li").eq(0).addClass("red").siblings().removeClass("red")
-            }
-
-        }
-
-        //上一页 下一页
-        $(".left").click(function () {
-            clearInterval(timer);
-            index--;
-            move();
-        })
-        $(".right").click(function () {
-            clearInterval(timer);
-            index++;
-            move();
-        })
-        $("#move").mouseenter(function () {
-            $(".left,.right").show()
-
-        })
-        $("#move").mouseleave(function () {
-            $(".left,.right").hide()
-//  		$(".right").hide()
-        })
-        //圆点
-        $(".point li").mouseenter(function () {
-            var i = $(this).index();
-            index = i;
-            move();
-        })
-
-
-        //移入  移出 停止
-        $("#move").mouseenter(function () {
-            window.clearInterval(timer);
-        })
-        $("#move").mouseleave(function () {
-            window.clearInterval(timer);
-            timer = window.setInterval(function () {
-                index++;
-                move()
-                console.log(1)
-            }, 2000);
-        })
-
-
-    })
+    new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        spaceBetween: 10,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false,
+        loop: true
+    });
 
     //纸尿裤
     $.getJSON("../static/json/index2.json", function (data) {
