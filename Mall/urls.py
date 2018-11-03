@@ -9,5 +9,6 @@ urlpatterns = [
     url(r"^resign/$", views.resign, name="resign"),  # 注册
     url(r"^codeimage/$", views.codeimage, name="codeimage"),  # 验证码
     url(r"^goodsdetail/$", views.goodsdetail, name="goodsdetail"),  # 商品详细
+    url(r"^detail/$", views.detail, name="detail"),  # 商品详细2
     url(r"^cart/$", views.cart, name="cart"),  # 购物车
 ]

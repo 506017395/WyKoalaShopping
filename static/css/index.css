@@ -754,7 +754,7 @@ ul {
 }
 
 .goods {
-    height: 80px;
+    height: 60px;
     width: 1000px;
     position: relative;
 }
@@ -809,18 +809,102 @@ ul {
     position: relative;
     height: auto;
     width: 1000px;
+    font-size: 12px;
 }
 
 #produce1 .detail1 li {
     height: 320px;
-    width: 198px;
+    width: 196px;
     float: left;
     margin-right: 2px;
     background: #fff;
     cursor: pointer;
+    position: relative;
 }
 
-/*#produce1 .detail1 li a{text-decoration: underline;}*/
+/*自定义*/
+#smallimg {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 10px;
+    top: 10px;
+}
+
+#diaimg {
+    height: 197px;
+    width: 197px;
+    display: block;
+    padding-top: 20px;
+}
+
+#diaimg img {
+    height: 100%;
+    width: 100%;
+}
+
+#packet {
+    color: red;
+    font-weight: 700;
+    padding-left: 10px;
+}
+
+#information {
+    font-weight: 700;
+}
+
+#rated {
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+#each1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#each2 {
+    width: auto;
+    padding: 2px;
+    margin-left: 18px;
+    color: red;
+    /*border: 1px dashed red;*/
+}
+
+#price {
+    padding-left: 15px;
+    color: rgb(210, 33, 71);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+#purchase {
+    padding-left: 5px;
+    font-size: 16px;
+    color: rgb(153, 153, 153);
+    text-decoration: line-through;
+}
+
+#buy {
+    margin-left: 8px;
+    padding: 3px;
+    background: rgb(210, 33, 71);
+    color: rgb(255, 255, 255);
+}
+
+#manjian {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    right: 0px;
+    top: 0px;
+    padding: 4px;
+    background: rgb(253, 164, 56);
+    text-align: center;
+    line-height: 18px;
+    color: rgb(255, 255, 255);
+}
+
 .active {
     text-decoration: underline;
 }
@@ -836,15 +920,17 @@ ul {
     position: relative;
     height: auto;
     width: 1000px;
+    font-size: 12px;
 }
 
 #produce2 .detail2 li {
     height: 320px;
-    width: 198px;
+    width: 196px;
     float: left;
     margin-right: 2px;
     background: #fff;
     cursor: pointer;
+    position: relative;
 }
 
 #container #produce3 {
@@ -858,15 +944,17 @@ ul {
     position: relative;
     height: auto;
     width: 1000px;
+    font-size: 12px;
 }
 
 #produce3 .detail3 li {
     height: 320px;
-    width: 198px;
+    width: 196px;
     float: left;
     margin-right: 2px;
     background: #fff;
     cursor: pointer;
+    position: relative;
 }
 
 #container #produce4 {
@@ -880,15 +968,17 @@ ul {
     position: relative;
     height: auto;
     width: 1000px;
+    font-size: 12px;
 }
 
 #produce4 .detail4 li {
     height: 320px;
-    width: 198px;
+    width: 196px;
     float: left;
     margin-right: 2px;
     background: #fff;
     cursor: pointer;
+    position: relative;
 }
 
 #container #produce5 {
@@ -902,17 +992,18 @@ ul {
     position: relative;
     height: auto;
     width: 1000px;
+    font-size: 12px;
 }
 
 #produce5 .detail5 li {
     height: 320px;
-    width: 198px;
+    width: 196px;
     float: left;
     margin-right: 2px;
     background: #fff;
     cursor: pointer;
+    position: relative;
 }
-
 /*第二个商品类表*/
 #dress {
     height: 1260px;

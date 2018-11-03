@@ -1,6 +1,6 @@
 [
- {"smallimg":"../static/img/ku1.png",
-  "img":"../static/img/ku1.webp",
+ {"smallimg":"img/ku1.png",
+  "img":"img/ku1.webp",
   "packet":"4包装",
   "information":"|Merries 花王妙儿舒...",
   "rated":"日本人气纸尿裤，考拉疯抢中",
@@ -9,8 +9,8 @@
   "purchase":"￥596",
   "act":"立刻购买"
  },
- {"smallimg":"../static/img/ku1.png",
-  "img":"../static/img/ku2.webp",
+ {"smallimg":"img/ku1.png",
+  "img":"img/ku2.webp",
   "packet":"2包装",
   "information":"|moony尤妮佳 L54片...",
   "rated":"全面透气 赶走闷热",
@@ -19,8 +19,8 @@
   "purchase":"￥376",
   "act":"立刻购买"
  },
- {"smallimg":"../static/img/ku1.png",
-  "img":"../static/img/ku3.webp",
+ {"smallimg":"img/ku1.png",
+  "img":"img/ku3.webp",
   "packet":"4包装",
   "information":"|GOO.N大王 L54片/包...",
   "rated":"尿湿显示带，帮宝宝远离红屁股",
@@ -29,8 +29,8 @@
   "purchase":"￥756",
   "act":"立刻购买"
  },
- {"smallimg":"../static/img/ku4.png",
-  "img":"../static/img/ku4.webp",
+ {"smallimg":"img/ku4.png",
+  "img":"img/ku4.webp",
   "packet":"4包装",
   "information":"|Pampers日本帮宝适...",
   "rated":"滋润保护，柔顺肌肤",
@@ -39,8 +39,8 @@
   "purchase":"￥756",
   "act":"立刻购买"
  },
- {"smallimg":"../static/img/ku4.png",
-  "img":"../static/img/ku5.webp",
+ {"smallimg":"img/ku4.png",
+  "img":"img/ku5.webp",
   "packet":"",
   "information":"HUGGIES好奇铂金装 S76片/...",
   "rated":"柔软透气弹性吸收",

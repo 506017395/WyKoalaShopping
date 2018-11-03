@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8"/>
     <title></title>
-    <link rel="stylesheet" href="{% static 'css/index.css' %}"/>
     <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
     <link rel="stylesheet" href="{% static "css/swiper.css" %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}"/>
     <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
     <script src="{% static "js/bootstrap.js" %}"></script>
     <script src="{% static "js/swiper.js" %}"></script>
@@ -345,28 +345,130 @@ border-width: 4px 4px 0;"></i></div>-->
     </div>
     <div class="sign" id="produce1" style="position: relative;">
         <ul class="detail1">
-
+            {% for diaper in diapers %}
+                <li>
+                    <img id="smallimg" src="{% static diaper.smallimg %}">
+                    <a id="diaimg" href="{% url "K:detail" %}"><img src="{% static diaper.img %}"></a>
+                    <a href="{% url "K:detail" %}"><span id="packet">{{ diaper.packet }}</span></a>
+                    <a href="{% url "K:detail" %}"><span id="information">{{ diaper.information }}</span></a>
+                    <a href="{% url "K:detail" %}"><p id="rated">{{ diaper.rated }}</p></a>
+                    <a href="{% url "K:detail" %}"><p id="each1">
+                        {% if diaper.each %}
+                            <span id="each2" style="border: 1px dashed red;">{{ diaper.each }}</span>
+                        {% else %}
+                            <span id="each2">{{ diaper.each }}</span>
+                        {% endif %}
+                    </p></a>
+                    <span id="price">￥{{ diaper.price }}</span>
+                    <span id="purchase">￥{{ diaper.purchase }}</span>
+                    <span id="buy">立刻购买</span>
+                </li>
+            {% endfor %}
         </ul>
-        <!--<div class="move" style="background: black; position: absolute; top: 197px;"></div>-->
     </div>
     <div class="sign" id="produce2">
         <ul class="detail2">
-
+            {% for powder in milk_powder %}
+                <li onclick="location.href='{% url "K:detail" %}'">
+                    <img onclick="location.href='{% url "K:detail" %}'" id="smallimg"
+                         src="{% static powder.smallimg %}">
+                    <a id="diaimg" href="{% url "K:detail" %}"><img src="{% static powder.img %}"></a>
+                    <a href="{% url "K:detail" %}"><span id="packet">{{ powder.packet }}</span></a>
+                    <a href="{% url "K:detail" %}"><span id="information">{{ powder.information }}</span></a>
+                    <a href="{% url "K:detail" %}"><p id="rated">{{ powder.rated }}</p></a>
+                    <a href="{% url "K:detail" %}"><p id="each1">
+                        {% if powder.each %}
+                            <span id="each2" style="border: 1px dashed red;">{{ powder.each }}</span>
+                        {% else %}
+                            <span id="each2">{{ powder.each }}</span>
+                        {% endif %}
+                    </p></a>
+                    <span id="price">￥{{ powder.price }}</span>
+                    <span id="purchase">￥{{ powder.purchase }}</span>
+                    <span id="buy">立刻购买</span>
+                </li>
+            {% endfor %}
         </ul>
     </div>
     <div class="sign" id="produce3">
         <ul class="detail3">
-
+            {% for care in cares %}
+                <li onclick="location.href='{% url "K:detail" %}'">
+                    <img onclick="location.href='{% url "K:detail" %}'" id="smallimg" src="{% static care.smallimg %}">
+                    {% if care.right %}
+                        <span onclick="location.href='{% url "K:detail" %}'" id="manjian">{{ care.right }}</span>
+                    {% endif %}
+                    <a id="diaimg" href="{% url "K:detail" %}"><img src="{% static care.img %}"></a>
+                    <a href="{% url "K:detail" %}"><span id="packet">{{ care.packet }}</span></a>
+                    <a href="{% url "K:detail" %}"><span id="information">{{ care.information }}</span></a>
+                    <a href="{% url "K:detail" %}"><p id="rated">{{ care.rated }}</p></a>
+                    <a href="{% url "K:detail" %}"><p id="each1">
+                        {% if care.each %}
+                            <span id="each2" style="border: 1px dashed red;">{{ care.each }}</span>
+                        {% else %}
+                            <span id="each2">{{ care.each }}</span>
+                        {% endif %}
+                    </p></a>
+                    <span id="price">￥{{ care.price }}</span>
+                    <span id="purchase">￥{{ care.purchase }}</span>
+                    <span id="buy">立刻购买</span>
+                </li>
+            {% endfor %}
         </ul>
     </div>
     <div class="sign" id="produce4">
         <ul class="detail4">
-
+            {% for children_clothe in children_clothes %}
+                <li onclick="location.href='{% url "K:detail" %}'">
+                    <img onclick="location.href='{% url "K:detail" %}'" id="smallimg"
+                         src="{% static children_clothe.smallimg %}">
+                    {% if children_clothe.right %}
+                        <span onclick="location.href='{% url "K:detail" %}'"
+                              id="manjian">{{ children_clothe.right }}</span>
+                    {% endif %}
+                    <a id="diaimg" href="{% url "K:detail" %}"><img src="{% static children_clothe.img %}"></a>
+                    <a href="{% url "K:detail" %}"><span id="packet">{{ children_clothe.packet }}</span></a>
+                    <a href="{% url "K:detail" %}"><span id="information">{{ children_clothe.information }}</span></a>
+                    <a href="{% url "K:detail" %}"><p id="rated">{{ children_clothe.rated }}</p></a>
+                    <a href="{% url "K:detail" %}"><p id="each1">
+                        {% if children_clothe.each %}
+                            <span id="each2" style="border: 1px dashed red;">{{ children_clothe.each }}</span>
+                        {% else %}
+                            <span id="each2">{{ children_clothe.each }}</span>
+                        {% endif %}
+                    </p></a>
+                    <span id="price">￥{{ children_clothe.price }}</span>
+                    <span id="purchase">￥{{ children_clothe.purchase }}</span>
+                    <span id="buy">立刻购买</span>
+                </li>
+            {% endfor %}
         </ul>
     </div>
     <div class="sign" id="produce5">
         <ul class="detail5">
-
+            {% for pregnant in pregnants %}
+                <li onclick="location.href='{% url "K:detail" %}'">
+                    <img onclick="location.href='{% url "K:detail" %}'" id="smallimg"
+                         src="{% static pregnant.smallimg %}">
+                    {% if pregnant.right %}
+                        <span onclick="location.href='{% url "K:detail" %}'" id="manjian">{{ pregnant.right }}</span>
+                    {% endif %}
+                    <a id="diaimg" href="{% url "K:detail" %}"><img src="{% static pregnant.img %}"></a>
+                    <a href="{% url "K:detail" %}"><span id="packet">{{ pregnant.packet }}</span></a>
+                    <a href="{% url "K:detail" %}"><span id="information">{{ pregnant.information }}</span></a>
+                    <a href="{% url "K:detail" %}"><p id="rated">{{ pregnant.rated }}</p></a>
+                    <a href="{% url "K:detail" %}"><p id="each1">
+                        {% if pregnant.each %}
+                            <span id="each2" style="border: 1px dashed red;">{{ pregnant.each }}</span>
+                        {% else %}
+                            <span id="each2">{{ pregnant.each }}</span>
+                        {% endif %}
+                    </p></a>
+                    <span id="price">￥{{ pregnant.price }}</span>
+                    <span id="purchase">￥{{ pregnant.purchase }}</span>
+                    <span id="buy">立刻购买</span>
+                </li>
+            {% endfor %}
         </ul>
     </div>
 </div>

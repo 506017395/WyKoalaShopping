@@ -8,7 +8,7 @@ import uuid
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from PIL import Image, ImageDraw, ImageFont
-from Mall.models import User, Slideshow
+from Mall.models import User, Slideshow, Diapers, Milk_powder, Care, Children_clothes, Pregnant
 
 
 # Create your views here.
@@ -16,10 +16,20 @@ from Mall.models import User, Slideshow
 
 # 网易考拉首页
 def index(request):
-    # 获取轮播图数据
-    slideshows = Slideshow.objects.all()
+    slideshows = Slideshow.objects.all()  # 获取轮播图数据
+    diapers = Diapers.objects.all()  # 获取纸尿库数据
+    milk_powder = Milk_powder.objects.all()  # 奶粉
+    cares = Care.objects.all()  # 保健
+    children_clothes = Children_clothes.objects.all()  # 童装童鞋
+    pregnant = Pregnant.objects.all()  # 孕妈专区
+
     result = {
-        "slideshows": slideshows
+        "slideshows": slideshows,
+        "diapers": diapers,
+        "milk_powder": milk_powder,
+        "cares": cares,
+        "children_clothes": children_clothes,
+        "pregnants": pregnant,
     }
 
     token = request.COOKIES.get("token")  # 获取token
@@ -133,6 +143,12 @@ def codeimage(request):
 # 商品详细
 def goodsdetail(request):
     return render(request, "goodsdetail.html")
+
+
+# 商品详细2
+def detail(request):
+
+    return render(request, "detail.html")
 
 
 # 购物车
