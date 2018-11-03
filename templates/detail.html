@@ -42,12 +42,17 @@
 <div id="header">
     <div class="top" style="position: relative;">
         <div class="topnext">
+            <
             <ul class="top_left">
                 <li>考拉欢迎你！</li>
-                <li class="enter"><a href="#">登入</a></li>
-                <li><a href="#">免费注册</a></li>
-                <li class="top_left_last"><img src="{% static 'img/phone(1).png' %}"><a href="#">手机考拉海沟</a>
-                </li>
+                {% if username %}
+                    <li class="enter"><a>{{ username }}</a></li>
+                    <li><a href="{% url "K:logout" %}">注销</a></li>
+                {% else %}
+                    <li class="enter"><a href="/login/">登入</a></li>
+                    <li><a href="/resign/">免费注册</a></li>
+                {% endif %}
+                <li class="top_left_last"><img src="{% static 'img/phone(1).png' %}"><a href="#">手机考拉海沟</a></li>
             </ul>
             <ul class="top_right">
                 <li><img src="{% static 'img/fly.png' %}"><a href="#">每日签到</a></li>
@@ -309,7 +314,8 @@ border-width: 4px 4px 0;"></i></div>-->
 <div id="center">
     <div class="car">
         <ul>
-            <li style="position: relative;"><img src="{% static 'img/fix1.png' %}">签到<span class="car_span1">每日签到赢考拉豆</span>
+            <li style="position: relative;"><img src="{% static 'img/fix1.png' %}">签到<span
+                    class="car_span1">每日签到赢考拉豆</span>
             </li>
             <li><img src="{% static 'img/fix2.png' %}">购物车<span class="car_span2"></span><i class="car_span3">1</i>
             </li>
@@ -323,18 +329,18 @@ border-width: 4px 4px 0;"></i></div>-->
     <div class="middle">
         <div class="left">
             <div class="left_box">
-                <img src="{% static 'img/G1.jpg' %}" class="smallImg">
+                <img src="{% static goods.img %}" class="smallImg">
                 <div class="smallArea" style="width: 201px; height: 201px;"></div>
             </div>
             <div class="fanye">
                 <span class="shang">&lt;</span>
                 <div class="div">
                     <ul>
-                        <li class="red"><img src="{% static 'img/smallG1.jpg' %}"></li>
-                        <li><img src="{% static 'img/smallG2.jpg' %}"></li>
-                        <li><img src="{% static 'img/smallG3.jpg' %}"></li>
-                        <li><img src="{% static 'img/smallG4.jpg' %}"></li>
-                        <li><img src="{% static 'img/smallG5.jpg' %}"></li>
+                        <li class="red"><img src="{% static goods.img %}"></li>
+                        <li><img src="{% static goods.img %}"></li>
+                        <li><img src="{% static goods.img %}"></li>
+                        <li><img src="{% static goods.img %}"></li>
+                        <li><img src="{% static goods.img %}"></li>
                     </ul>
                 </div>
 
@@ -342,11 +348,19 @@ border-width: 4px 4px 0;"></i></div>-->
             </div>
         </div>
         <div class="bigArea" style="">
-            <img src="{% static 'img/G1.jpg' %}" class="bigImg">
+            <img src="{% static goods.img %}" class="bigImg">
         </div>
+        <script>
+            $(".div li").mouseenter(function () {
+                {#var index = $(this).index() + 1;#}
+                $(this).addClass("red").siblings().removeClass("red");
+                $(".smallImg").attr("src", {% static goods.img %})
+                $(".bigImg").attr("src", {% static goods.img %})
+            })
+        </script>
         <div class="right">
             <div class="right_top">
-                <img src="{% static 'img/smallmilk5.png' %}">
+                <img src="{% static goods.smallimg %}">
                 <span>新西兰</span>
                 <span>|</span>
                 <span>Aptamil 爱他美(澳洲)</span>
@@ -357,8 +371,8 @@ border-width: 4px 4px 0;"></i></div>-->
 
             </div>
             <div class="theme">
-                <span>2件装</span>
-                | Aptamil澳洲爱他美Profutura白金版婴幼儿奶粉 3段900克/罐 2罐装
+                <span>{{ goods.packet }}</span>
+                {{ goods.information }}
             </div>
             <div class="content">
                 取自天然无污染的新西兰奶源，天堂纯净牧场。接近母乳的奶粉配方，深受全球妈妈信赖！
@@ -378,9 +392,9 @@ border-width: 4px 4px 0;"></i></div>-->
             <div class="price">
                 <div class="price_content">
                     <span class="span1">售价</span>
-                    <span class="span2">¥<i>374.00</i></span>
+                    <span class="span2">¥<i>{{ goods.price }}</i></span>
                     <span class="span3">折合单价¥187</span>
-                    <span class="span4">参考价&nbsp;¥<i style="font-style: normal;">499.00</i></span>
+                    <span class="span4">参考价&nbsp;¥<i style="font-style: normal;">{{ goods.purchase }}</i></span>
                 </div>
 
             </div>

@@ -346,13 +346,13 @@ border-width: 4px 4px 0;"></i></div>-->
     <div class="sign" id="produce1" style="position: relative;">
         <ul class="detail1">
             {% for diaper in diapers %}
-                <li>
-                    <img id="smallimg" src="{% static diaper.smallimg %}">
-                    <a id="diaimg" href="{% url "K:detail" %}"><img src="{% static diaper.img %}"></a>
-                    <a href="{% url "K:detail" %}"><span id="packet">{{ diaper.packet }}</span></a>
-                    <a href="{% url "K:detail" %}"><span id="information">{{ diaper.information }}</span></a>
-                    <a href="{% url "K:detail" %}"><p id="rated">{{ diaper.rated }}</p></a>
-                    <a href="{% url "K:detail" %}"><p id="each1">
+                <li onclick="location.href='{% url "K:detail" 1 diaper.id %}'">
+                    <img id="smallimg" src="{% static diaper.smallimg %}" onclick="location.href='{% url "K:detail" 1 diaper.id %}'">
+                    <a id="diaimg" href="{% url "K:detail" 1 diaper.id %}"><img src="{% static diaper.img %}"></a>
+                    <a href="{% url "K:detail" 1 diaper.id %}"><span id="packet">{{ diaper.packet }}</span></a>
+                    <a href="{% url "K:detail" 1 diaper.id %}"><span id="information">{{ diaper.information }}</span></a>
+                    <a href="{% url "K:detail" 1 diaper.id %}"><p id="rated">{{ diaper.rated }}</p></a>
+                    <a href="{% url "K:detail" 1 diaper.id %}"><p id="each1">
                         {% if diaper.each %}
                             <span id="each2" style="border: 1px dashed red;">{{ diaper.each }}</span>
                         {% else %}
@@ -369,14 +369,14 @@ border-width: 4px 4px 0;"></i></div>-->
     <div class="sign" id="produce2">
         <ul class="detail2">
             {% for powder in milk_powder %}
-                <li onclick="location.href='{% url "K:detail" %}'">
-                    <img onclick="location.href='{% url "K:detail" %}'" id="smallimg"
+                <li onclick="location.href='{% url "K:detail" 2 powder.id %}'">
+                    <img onclick="location.href='{% url "K:detail" 2 powder.id %}'" id="smallimg"
                          src="{% static powder.smallimg %}">
-                    <a id="diaimg" href="{% url "K:detail" %}"><img src="{% static powder.img %}"></a>
-                    <a href="{% url "K:detail" %}"><span id="packet">{{ powder.packet }}</span></a>
-                    <a href="{% url "K:detail" %}"><span id="information">{{ powder.information }}</span></a>
-                    <a href="{% url "K:detail" %}"><p id="rated">{{ powder.rated }}</p></a>
-                    <a href="{% url "K:detail" %}"><p id="each1">
+                    <a id="diaimg" href="{% url "K:detail" 2 powder.id %}"><img src="{% static powder.img %}"></a>
+                    <a href="{% url "K:detail" 2 powder.id %}"><span id="packet">{{ powder.packet }}</span></a>
+                    <a href="{% url "K:detail" 2 powder.id %}"><span id="information">{{ powder.information }}</span></a>
+                    <a href="{% url "K:detail" 2 powder.id %}"><p id="rated">{{ powder.rated }}</p></a>
+                    <a href="{% url "K:detail" 2 powder.id %}"><p id="each1">
                         {% if powder.each %}
                             <span id="each2" style="border: 1px dashed red;">{{ powder.each }}</span>
                         {% else %}
@@ -393,16 +393,16 @@ border-width: 4px 4px 0;"></i></div>-->
     <div class="sign" id="produce3">
         <ul class="detail3">
             {% for care in cares %}
-                <li onclick="location.href='{% url "K:detail" %}'">
-                    <img onclick="location.href='{% url "K:detail" %}'" id="smallimg" src="{% static care.smallimg %}">
+                <li onclick="location.href='{% url "K:detail" 3 care.id %}'">
+                    <img onclick="location.href='{% url "K:detail" 3 care.id %}'" id="smallimg" src="{% static care.smallimg %}">
                     {% if care.right %}
-                        <span onclick="location.href='{% url "K:detail" %}'" id="manjian">{{ care.right }}</span>
+                        <span onclick="location.href='{% url "K:detail" 3 care.id %}'" id="manjian">{{ care.right }}</span>
                     {% endif %}
-                    <a id="diaimg" href="{% url "K:detail" %}"><img src="{% static care.img %}"></a>
-                    <a href="{% url "K:detail" %}"><span id="packet">{{ care.packet }}</span></a>
-                    <a href="{% url "K:detail" %}"><span id="information">{{ care.information }}</span></a>
-                    <a href="{% url "K:detail" %}"><p id="rated">{{ care.rated }}</p></a>
-                    <a href="{% url "K:detail" %}"><p id="each1">
+                    <a id="diaimg" href="{% url "K:detail" 3 care.id %}"><img src="{% static care.img %}"></a>
+                    <a href="{% url "K:detail" 3 care.id %}"><span id="packet">{{ care.packet }}</span></a>
+                    <a href="{% url "K:detail" 3 care.id %}"><span id="information">{{ care.information }}</span></a>
+                    <a href="{% url "K:detail" 3 care.id %}"><p id="rated">{{ care.rated }}</p></a>
+                    <a href="{% url "K:detail" 3 care.id %}"><p id="each1">
                         {% if care.each %}
                             <span id="each2" style="border: 1px dashed red;">{{ care.each }}</span>
                         {% else %}
@@ -419,18 +419,18 @@ border-width: 4px 4px 0;"></i></div>-->
     <div class="sign" id="produce4">
         <ul class="detail4">
             {% for children_clothe in children_clothes %}
-                <li onclick="location.href='{% url "K:detail" %}'">
-                    <img onclick="location.href='{% url "K:detail" %}'" id="smallimg"
+                <li onclick="location.href='{% url "K:detail" 4 children_clothe.id %}'">
+                    <img onclick="location.href='{% url "K:detail" 4 children_clothe.id %}'" id="smallimg"
                          src="{% static children_clothe.smallimg %}">
                     {% if children_clothe.right %}
-                        <span onclick="location.href='{% url "K:detail" %}'"
+                        <span onclick="location.href='{% url "K:detail" 4 children_clothe.id %}'"
                               id="manjian">{{ children_clothe.right }}</span>
                     {% endif %}
-                    <a id="diaimg" href="{% url "K:detail" %}"><img src="{% static children_clothe.img %}"></a>
-                    <a href="{% url "K:detail" %}"><span id="packet">{{ children_clothe.packet }}</span></a>
-                    <a href="{% url "K:detail" %}"><span id="information">{{ children_clothe.information }}</span></a>
-                    <a href="{% url "K:detail" %}"><p id="rated">{{ children_clothe.rated }}</p></a>
-                    <a href="{% url "K:detail" %}"><p id="each1">
+                    <a id="diaimg" href="{% url "K:detail" 4 children_clothe.id %}"><img src="{% static children_clothe.img %}"></a>
+                    <a href="{% url "K:detail" 4 children_clothe.id %}"><span id="packet">{{ children_clothe.packet }}</span></a>
+                    <a href="{% url "K:detail" 4 children_clothe.id %}"><span id="information">{{ children_clothe.information }}</span></a>
+                    <a href="{% url "K:detail" 4 children_clothe.id %}"><p id="rated">{{ children_clothe.rated }}</p></a>
+                    <a href="{% url "K:detail" 4 children_clothe.id %}"><p id="each1">
                         {% if children_clothe.each %}
                             <span id="each2" style="border: 1px dashed red;">{{ children_clothe.each }}</span>
                         {% else %}
@@ -447,17 +447,17 @@ border-width: 4px 4px 0;"></i></div>-->
     <div class="sign" id="produce5">
         <ul class="detail5">
             {% for pregnant in pregnants %}
-                <li onclick="location.href='{% url "K:detail" %}'">
-                    <img onclick="location.href='{% url "K:detail" %}'" id="smallimg"
+                <li onclick="location.href='{% url "K:detail" 5 pregnant.id %}'">
+                    <img onclick="location.href='{% url "K:detail" 5 pregnant.id %}'" id="smallimg"
                          src="{% static pregnant.smallimg %}">
                     {% if pregnant.right %}
-                        <span onclick="location.href='{% url "K:detail" %}'" id="manjian">{{ pregnant.right }}</span>
+                        <span onclick="location.href='{% url "K:detail" 5 pregnant.id %}'" id="manjian">{{ pregnant.right }}</span>
                     {% endif %}
-                    <a id="diaimg" href="{% url "K:detail" %}"><img src="{% static pregnant.img %}"></a>
-                    <a href="{% url "K:detail" %}"><span id="packet">{{ pregnant.packet }}</span></a>
-                    <a href="{% url "K:detail" %}"><span id="information">{{ pregnant.information }}</span></a>
-                    <a href="{% url "K:detail" %}"><p id="rated">{{ pregnant.rated }}</p></a>
-                    <a href="{% url "K:detail" %}"><p id="each1">
+                    <a id="diaimg" href="{% url "K:detail" 5 pregnant.id %}"><img src="{% static pregnant.img %}"></a>
+                    <a href="{% url "K:detail" 5 pregnant.id %}"><span id="packet">{{ pregnant.packet }}</span></a>
+                    <a href="{% url "K:detail" 5 pregnant.id %}"><span id="information">{{ pregnant.information }}</span></a>
+                    <a href="{% url "K:detail" 5 pregnant.id %}"><p id="rated">{{ pregnant.rated }}</p></a>
+                    <a href="{% url "K:detail" 5 pregnant.id %}"><p id="each1">
                         {% if pregnant.each %}
                             <span id="each2" style="border: 1px dashed red;">{{ pregnant.each }}</span>
                         {% else %}

@@ -146,9 +146,19 @@ def goodsdetail(request):
 
 
 # 商品详细2
-def detail(request):
+def detail(request, good_type, good_id):
+    if good_type == "1":
+        goods = Diapers.objects.get(pk=good_id)  # 纸尿裤
+    elif good_type == "2":
+        goods = Milk_powder.objects.get(pk=good_id)  # 奶粉
+    elif good_type == "3":
+        goods = Care.objects.get(pk=good_id)  # 保健
+    elif good_type == "4":
+        goods = Children_clothes.objects.get(pk=good_id)  # 童装童鞋
+    elif good_type == "5":
+        goods = Pregnant.objects.get(pl=good_id)  # 孕妈专区
 
-    return render(request, "detail.html")
+    return render(request, "detail.html", context={"goods": goods})
 
 
 # 购物车
