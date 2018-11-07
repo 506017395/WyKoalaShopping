@@ -8,36 +8,29 @@ import uuid
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from PIL import Image, ImageDraw, ImageFont
-from Mall.models import User, Slideshow, Diapers, Milk_powder, Care, Children_clothes, Pregnant
-
 
 # Create your views here.
 
 
 # 网易考拉首页
+from Mall.models import Slideshow, Goods, User
+
+
 def index(request):
     slideshows = Slideshow.objects.all()  # 获取轮播图数据
-    diapers = Diapers.objects.all()  # 获取纸尿库数据
-    milk_powder = Milk_powder.objects.all()  # 奶粉
-    cares = Care.objects.all()  # 保健
-    children_clothes = Children_clothes.objects.all()  # 童装童鞋
-    pregnant = Pregnant.objects.all()  # 孕妈专区
-
+    goods_list = Goods.objects.all()  # 获取商品所有数据
+    goods_count = range(1, 6)
     result = {
         "slideshows": slideshows,
-        "diapers": diapers,
-        "milk_powder": milk_powder,
-        "cares": cares,
-        "children_clothes": children_clothes,
-        "pregnants": pregnant,
+        "goods_list": goods_list,
+        "goods_count": goods_count,
     }
 
     token = request.COOKIES.get("token")  # 获取token
-    user_set = User.objects.filter(token=token)  # 根据token查找用户
-    if user_set.exists():  # 判断是否找到用户
-        user = user_set.first()
-        result.update(username=user.uname)
-        return render(request, 'index.html', context=result)
+
+    if token:  # 判断是否找到用户
+        user = User.objects.get(token=token)  # 根据token查找用户
+        result["username"] = user.uname
     return render(request, "index.html", context=result)
 
 
@@ -146,18 +139,8 @@ def goodsdetail(request):
 
 
 # 商品详细2
-def detail(request, good_type, good_id):
-    if good_type == "1":
-        goods = Diapers.objects.get(pk=good_id)  # 纸尿裤
-    elif good_type == "2":
-        goods = Milk_powder.objects.get(pk=good_id)  # 奶粉
-    elif good_type == "3":
-        goods = Care.objects.get(pk=good_id)  # 保健
-    elif good_type == "4":
-        goods = Children_clothes.objects.get(pk=good_id)  # 童装童鞋
-    elif good_type == "5":
-        goods = Pregnant.objects.get(pl=good_id)  # 孕妈专区
-
+def detail(request, goods_id, ):
+    goods = Goods.objects.get(pk=goods_id)
     return render(request, "detail.html", context={"goods": goods})
 
 

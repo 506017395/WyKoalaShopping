@@ -343,256 +343,164 @@ border-width: 4px 4px 0;"></i></div>-->
         </ul>
         <span></span>
     </div>
-    <div class="sign" id="produce1" style="position: relative;">
-        <ul class="detail1">
-            {% for diaper in diapers %}
-                <li onclick="location.href='{% url "K:detail" 1 diaper.id %}'">
-                    <img id="smallimg" src="{% static diaper.smallimg %}" onclick="location.href='{% url "K:detail" 1 diaper.id %}'">
-                    <a id="diaimg" href="{% url "K:detail" 1 diaper.id %}"><img src="{% static diaper.img %}"></a>
-                    <a href="{% url "K:detail" 1 diaper.id %}"><span id="packet">{{ diaper.packet }}</span></a>
-                    <a href="{% url "K:detail" 1 diaper.id %}"><span id="information">{{ diaper.information }}</span></a>
-                    <a href="{% url "K:detail" 1 diaper.id %}"><p id="rated">{{ diaper.rated }}</p></a>
-                    <a href="{% url "K:detail" 1 diaper.id %}"><p id="each1">
-                        {% if diaper.each %}
-                            <span id="each2" style="border: 1px dashed red;">{{ diaper.each }}</span>
-                        {% else %}
-                            <span id="each2">{{ diaper.each }}</span>
-                        {% endif %}
-                    </p></a>
-                    <span id="price">￥{{ diaper.price }}</span>
-                    <span id="purchase">￥{{ diaper.purchase }}</span>
-                    <span id="buy">立刻购买</span>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="sign" id="produce2">
-        <ul class="detail2">
-            {% for powder in milk_powder %}
-                <li onclick="location.href='{% url "K:detail" 2 powder.id %}'">
-                    <img onclick="location.href='{% url "K:detail" 2 powder.id %}'" id="smallimg"
-                         src="{% static powder.smallimg %}">
-                    <a id="diaimg" href="{% url "K:detail" 2 powder.id %}"><img src="{% static powder.img %}"></a>
-                    <a href="{% url "K:detail" 2 powder.id %}"><span id="packet">{{ powder.packet }}</span></a>
-                    <a href="{% url "K:detail" 2 powder.id %}"><span id="information">{{ powder.information }}</span></a>
-                    <a href="{% url "K:detail" 2 powder.id %}"><p id="rated">{{ powder.rated }}</p></a>
-                    <a href="{% url "K:detail" 2 powder.id %}"><p id="each1">
-                        {% if powder.each %}
-                            <span id="each2" style="border: 1px dashed red;">{{ powder.each }}</span>
-                        {% else %}
-                            <span id="each2">{{ powder.each }}</span>
-                        {% endif %}
-                    </p></a>
-                    <span id="price">￥{{ powder.price }}</span>
-                    <span id="purchase">￥{{ powder.purchase }}</span>
-                    <span id="buy">立刻购买</span>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="sign" id="produce3">
-        <ul class="detail3">
-            {% for care in cares %}
-                <li onclick="location.href='{% url "K:detail" 3 care.id %}'">
-                    <img onclick="location.href='{% url "K:detail" 3 care.id %}'" id="smallimg" src="{% static care.smallimg %}">
-                    {% if care.right %}
-                        <span onclick="location.href='{% url "K:detail" 3 care.id %}'" id="manjian">{{ care.right }}</span>
-                    {% endif %}
-                    <a id="diaimg" href="{% url "K:detail" 3 care.id %}"><img src="{% static care.img %}"></a>
-                    <a href="{% url "K:detail" 3 care.id %}"><span id="packet">{{ care.packet }}</span></a>
-                    <a href="{% url "K:detail" 3 care.id %}"><span id="information">{{ care.information }}</span></a>
-                    <a href="{% url "K:detail" 3 care.id %}"><p id="rated">{{ care.rated }}</p></a>
-                    <a href="{% url "K:detail" 3 care.id %}"><p id="each1">
-                        {% if care.each %}
-                            <span id="each2" style="border: 1px dashed red;">{{ care.each }}</span>
-                        {% else %}
-                            <span id="each2">{{ care.each }}</span>
-                        {% endif %}
-                    </p></a>
-                    <span id="price">￥{{ care.price }}</span>
-                    <span id="purchase">￥{{ care.purchase }}</span>
-                    <span id="buy">立刻购买</span>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="sign" id="produce4">
-        <ul class="detail4">
-            {% for children_clothe in children_clothes %}
-                <li onclick="location.href='{% url "K:detail" 4 children_clothe.id %}'">
-                    <img onclick="location.href='{% url "K:detail" 4 children_clothe.id %}'" id="smallimg"
-                         src="{% static children_clothe.smallimg %}">
-                    {% if children_clothe.right %}
-                        <span onclick="location.href='{% url "K:detail" 4 children_clothe.id %}'"
-                              id="manjian">{{ children_clothe.right }}</span>
-                    {% endif %}
-                    <a id="diaimg" href="{% url "K:detail" 4 children_clothe.id %}"><img src="{% static children_clothe.img %}"></a>
-                    <a href="{% url "K:detail" 4 children_clothe.id %}"><span id="packet">{{ children_clothe.packet }}</span></a>
-                    <a href="{% url "K:detail" 4 children_clothe.id %}"><span id="information">{{ children_clothe.information }}</span></a>
-                    <a href="{% url "K:detail" 4 children_clothe.id %}"><p id="rated">{{ children_clothe.rated }}</p></a>
-                    <a href="{% url "K:detail" 4 children_clothe.id %}"><p id="each1">
-                        {% if children_clothe.each %}
-                            <span id="each2" style="border: 1px dashed red;">{{ children_clothe.each }}</span>
-                        {% else %}
-                            <span id="each2">{{ children_clothe.each }}</span>
-                        {% endif %}
-                    </p></a>
-                    <span id="price">￥{{ children_clothe.price }}</span>
-                    <span id="purchase">￥{{ children_clothe.purchase }}</span>
-                    <span id="buy">立刻购买</span>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="sign" id="produce5">
-        <ul class="detail5">
-            {% for pregnant in pregnants %}
-                <li onclick="location.href='{% url "K:detail" 5 pregnant.id %}'">
-                    <img onclick="location.href='{% url "K:detail" 5 pregnant.id %}'" id="smallimg"
-                         src="{% static pregnant.smallimg %}">
-                    {% if pregnant.right %}
-                        <span onclick="location.href='{% url "K:detail" 5 pregnant.id %}'" id="manjian">{{ pregnant.right }}</span>
-                    {% endif %}
-                    <a id="diaimg" href="{% url "K:detail" 5 pregnant.id %}"><img src="{% static pregnant.img %}"></a>
-                    <a href="{% url "K:detail" 5 pregnant.id %}"><span id="packet">{{ pregnant.packet }}</span></a>
-                    <a href="{% url "K:detail" 5 pregnant.id %}"><span id="information">{{ pregnant.information }}</span></a>
-                    <a href="{% url "K:detail" 5 pregnant.id %}"><p id="rated">{{ pregnant.rated }}</p></a>
-                    <a href="{% url "K:detail" 5 pregnant.id %}"><p id="each1">
-                        {% if pregnant.each %}
-                            <span id="each2" style="border: 1px dashed red;">{{ pregnant.each }}</span>
-                        {% else %}
-                            <span id="each2">{{ pregnant.each }}</span>
-                        {% endif %}
-                    </p></a>
-                    <span id="price">￥{{ pregnant.price }}</span>
-                    <span id="purchase">￥{{ pregnant.purchase }}</span>
-                    <span id="buy">立刻购买</span>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
-<div id="dress">
-    <div class="dress_title">
 
-    </div>
-    <div class="cloth">
-        <div>
-            <h2>服饰鞋包</h2>
-            <h3>———穿出自己的STYLE、你就是时尚博主······———</h3>
-        </div>
-        <div class="pic2"></div>
-    </div>
-    <div class="cloth_goods">
-        <ul class="cloth_item">
-            <li class="cloth_first">服饰</li>
-            <li>包包</li>
-            <li>鞋子</li>
-            <li>配件</li>
-            <li>手表</li>
-        </ul>
-        <span></span>
-    </div>
-    <div class="sign1" id="produte1">
-        <ul class="deta1">
-
-        </ul>
-    </div>
-    <div class="more">
-    </div>
-    <div class="more_pic"></div>
-</div>
-<div id="footer">
-    <div class="foot">
-        <div class="foot_top">
-            <ul class="foot_top_ul">
-                <li>
-                    <i><img src="{% static 'img/foot_03.jpg' %}"></i>
-                    <strong>100%正品</strong>
-                    <span>全球精选 正品保障</span>
-                </li>
-                <li>
-                    <i><img src="{% static 'img/foot_05.jpg' %}"></i>
-                    <strong>低价保障</strong>
-                    <span>缩减中间环节 确保低价</span>
-                </li>
-                <li>
-                    <i><img src="{% static 'img/foot_07.jpg' %}"></i>
-                    <strong>7天无忧退货</strong>
-                    <span>国内退货 售后无忧</span>
-                </li>
-                <li>
-                    <i><img src="{% static 'img/foot_09.png' %}"></i>
-                    <strong>实付满88包邮</strong>
-                    <span>部分特殊商品除外</span>
-                </li>
+    {% for cou in goods_count %}
+        <div class="sign" id="produce{{ cou }}">
+            <ul class="detail{{ cou }}">
+                {% for goods in goods_list %}
+                    {% if goods.goods_type == cou %}
+                        <li onclick="location.href=' {% url "K:detail" goods.id %}'">
+                            <img onclick="location.href=' {% url "K:detail" goods.id %}'" class="smallimg"
+                                 src="{% static goods.smallimg %}">
+                            {% if goods.right %}
+                                <span onclick="location.href=' {% url "K:detail" goods.id %}'"
+                                      class="manjian">{{ goods.right }}</span>
+                            {% endif %}
+                            <a class="diaimg" href=" {% url "K:detail" goods.id %}"><img
+                                    src="{% static goods.img %}"></a>
+                            <a href=" {% url "K:detail" goods.id %}"><span class="packet">{{ goods.packet }}</span></a>
+                            <a href=" {% url "K:detail" goods.id %}"><span
+                                    class="information">{{ goods.information }}</span></a>
+                            <a href=" {% url "K:detail" goods.id %}"><p class="rated">{{ goods.rated }}</p></a>
+                            <a href=" {% url "K:detail" goods.id %}"><p class="each1">
+                                {% if goods.each %}
+                                    <span class="each2" style="border: 1px dashed red;">{{ goods.each }}</span>
+                                {% else %}
+                                    <span class="each2">{{ goods.each }}</span>
+                                {% endif %}
+                            </p></a>
+                            <span class="price">￥{{ goods.price }}</span>
+                            <span class="purchase">￥{{ goods.purchase }}</span>
+                            <span class="buy">立刻购买</span>
+                        </li>
+                    {% endif %}
+                {% endfor %}
             </ul>
         </div>
-        <div class="foot_bottom">
-            <ul class="foot_bottom_ul">
-                <li class="foot_bottom_first">
-                    <img src="{% static 'img/1.png' %}" style="width: 200px; height: 43px; " class="img1">
-                    <span>关注我们</span><i><img src="{% static 'img/wang_03.jpg' %}"></i><i><img
-                        src="{% static 'img/wang_05.jpg' %}"></i><i><img src="{% static 'img/wang_07.jpg' %}"></i>
-                </li>
-                <li>
-                    <dl>
-                        <dt>考拉保障</dt>
-                        <dd>张品保障</dd>
-                        <dd>廉正监督</dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl>
-                        <dt>新手指南</dt>
-                        <dd>购物流程</dd>
-                        <dd>支付方式</dd>
-                        <dd>通关税费</dd>
-                        <dd>常见问题</dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl>
-                        <dt>售后服务</dt>
-                        <dd>退货政策</dd>
-                        <dd>退货流程</dd>
-                        <dd>退款说明</dd>
-                        <dd>联系客服</dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl>
-                        <dt>物流配送</dt>
-                        <dd>配送方式</dd>
-                        <dd>配送服务</dd>
-                        <dd>运费标准</dd>
-                        <dd>物流跟踪</dd>
-                    </dl>
-                </li>
-                <li>
-                    <dl>
-                        <dt>关于我们</dt>
-                        <dd>联系我们</dd>
-                        <dd>招商合作</dd>
-                        <dd>销售联盟</dd>
-                        <dd>CEO邮箱</dd>
-                    </dl>
-                </li>
-                <li class="foot_bottom_last">
-                    <img src="{% static 'img/ma.png' %}">
-                    <span>扫描下载手机版</span>
-                </li>
+    {% endfor %}
+
+    <div id="dress">
+        <div class="dress_title">
+
+        </div>
+        <div class="cloth">
+            <div>
+                <h2>服饰鞋包</h2>
+                <h3>———穿出自己的STYLE、你就是时尚博主······———</h3>
+            </div>
+            <div class="pic2"></div>
+        </div>
+        <div class="cloth_goods">
+            <ul class="cloth_item">
+                <li class="cloth_first">服饰</li>
+                <li>包包</li>
+                <li>鞋子</li>
+                <li>配件</li>
+                <li>手表</li>
+            </ul>
+            <span></span>
+        </div>
+        <div class="sign1" id="produte1">
+            <ul class="deta1">
+
             </ul>
         </div>
+        <div class="more">
+        </div>
+        <div class="more_pic"></div>
     </div>
-    <div class="end">
-        <p>About NetEase - 公司简介 - 联系方法 - 友情链接 - 招聘信息 - 客户服务 - 隐私政策 - 网络营销 - 网站地图 - 网易考拉海购</p>
-        <p class="end_p"><img src="{% static 'img/gongan1.png' %}"> <span>33010002000066号 &nbsp;&nbsp;增值电信业务经营许可证：浙B2-20090185-3 &nbsp;&nbsp;网络文化经营许可证：浙网文[2016]0155-055号&nbsp;&nbsp; 网易公司版权所有©1997-2016</span>
-        </p>
-        <p>
-            <span><img src="{% static 'img/gongan2.png' %}" style="height: 35px; width: 80px;"></span><span><img
-                src="{% static 'img/gonganlast.jpg' %}" style="height: 35px; width: 29px;"></span>
-        </p>
+    <div id="footer">
+        <div class="foot">
+            <div class="foot_top">
+                <ul class="foot_top_ul">
+                    <li>
+                        <i><img src="{% static 'img/foot_03.jpg' %}"></i>
+                        <strong>100%正品</strong>
+                        <span>全球精选 正品保障</span>
+                    </li>
+                    <li>
+                        <i><img src="{% static 'img/foot_05.jpg' %}"></i>
+                        <strong>低价保障</strong>
+                        <span>缩减中间环节 确保低价</span>
+                    </li>
+                    <li>
+                        <i><img src="{% static 'img/foot_07.jpg' %}"></i>
+                        <strong>7天无忧退货</strong>
+                        <span>国内退货 售后无忧</span>
+                    </li>
+                    <li>
+                        <i><img src="{% static 'img/foot_09.png' %}"></i>
+                        <strong>实付满88包邮</strong>
+                        <span>部分特殊商品除外</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="foot_bottom">
+                <ul class="foot_bottom_ul">
+                    <li class="foot_bottom_first">
+                        <img src="{% static 'img/1.png' %}" style="width: 200px; height: 43px; " class="img1">
+                        <span>关注我们</span><i><img src="{% static 'img/wang_03.jpg' %}"></i><i><img
+                            src="{% static 'img/wang_05.jpg' %}"></i><i><img src="{% static 'img/wang_07.jpg' %}"></i>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>考拉保障</dt>
+                            <dd>张品保障</dd>
+                            <dd>廉正监督</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>新手指南</dt>
+                            <dd>购物流程</dd>
+                            <dd>支付方式</dd>
+                            <dd>通关税费</dd>
+                            <dd>常见问题</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>售后服务</dt>
+                            <dd>退货政策</dd>
+                            <dd>退货流程</dd>
+                            <dd>退款说明</dd>
+                            <dd>联系客服</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>物流配送</dt>
+                            <dd>配送方式</dd>
+                            <dd>配送服务</dd>
+                            <dd>运费标准</dd>
+                            <dd>物流跟踪</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>关于我们</dt>
+                            <dd>联系我们</dd>
+                            <dd>招商合作</dd>
+                            <dd>销售联盟</dd>
+                            <dd>CEO邮箱</dd>
+                        </dl>
+                    </li>
+                    <li class="foot_bottom_last">
+                        <img src="{% static 'img/ma.png' %}">
+                        <span>扫描下载手机版</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="end">
+            <p>About NetEase - 公司简介 - 联系方法 - 友情链接 - 招聘信息 - 客户服务 - 隐私政策 - 网络营销 - 网站地图 - 网易考拉海购</p>
+            <p class="end_p"><img src="{% static 'img/gongan1.png' %}"> <span>33010002000066号 &nbsp;&nbsp;增值电信业务经营许可证：浙B2-20090185-3 &nbsp;&nbsp;网络文化经营许可证：浙网文[2016]0155-055号&nbsp;&nbsp; 网易公司版权所有©1997-2016</span>
+            </p>
+            <p>
+                <span><img src="{% static 'img/gongan2.png' %}" style="height: 35px; width: 80px;"></span><span><img
+                    src="{% static 'img/gonganlast.jpg' %}" style="height: 35px; width: 29px;"></span>
+            </p>
+        </div>
     </div>
 </div>
 </body>

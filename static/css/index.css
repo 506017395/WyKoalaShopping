@@ -623,31 +623,6 @@ ul {
     bottom: 0px;
 }
 
-/*.swiper-container {*/
-/*width: 100%;*/
-/*height: 100%;*/
-
-/*}*/
-
-/*.swiper-slide {*/
-/*text-align: center;*/
-/*font-size: 18px;*/
-/*background: #fff;*/
-/*!* Center slide text vertically *!*/
-/*display: -webkit-box;*/
-/*display: -ms-flexbox;*/
-/*display: -webkit-flex;*/
-/*display: flex;*/
-/*-webkit-box-pack: center;*/
-/*-ms-flex-pack: center;*/
-/*-webkit-justify-content: center;*/
-/*justify-content: center;*/
-/*-webkit-box-align: center;*/
-/*-ms-flex-align: center;*/
-/*-webkit-align-items: center;*/
-/*align-items: center;*/
-/*}*/
-
 /*正文部分
 */
 /*第一个商品类表*/
@@ -823,7 +798,7 @@ ul {
 }
 
 /*自定义*/
-#smallimg {
+.smallimg {
     position: absolute;
     height: 30px;
     width: 30px;
@@ -831,39 +806,39 @@ ul {
     top: 10px;
 }
 
-#diaimg {
+.diaimg {
     height: 197px;
     width: 197px;
     display: block;
     padding-top: 20px;
 }
 
-#diaimg img {
+.diaimg img {
     height: 100%;
     width: 100%;
 }
 
-#packet {
+.packet {
     color: red;
     font-weight: 700;
     padding-left: 10px;
 }
 
-#information {
+.information {
     font-weight: 700;
 }
 
-#rated {
+.rated {
     padding-left: 15px;
     padding-top: 5px;
 }
 
-#each1 {
-    padding-top: 10px;
-    padding-bottom: 10px;
+.each1 {
+    /*padding-top: 10px;*/
+    /*padding-bottom: 10px;*/
 }
 
-#each2 {
+.each2 {
     width: auto;
     padding: 2px;
     margin-left: 18px;
@@ -871,28 +846,28 @@ ul {
     /*border: 1px dashed red;*/
 }
 
-#price {
+.price {
     padding-left: 15px;
     color: rgb(210, 33, 71);
     font-size: 20px;
     font-weight: 800;
 }
 
-#purchase {
+.purchase {
     padding-left: 5px;
     font-size: 16px;
     color: rgb(153, 153, 153);
     text-decoration: line-through;
 }
 
-#buy {
+.buy {
     margin-left: 8px;
     padding: 3px;
     background: rgb(210, 33, 71);
     color: rgb(255, 255, 255);
 }
 
-#manjian {
+.manjian {
     position: absolute;
     height: 40px;
     width: 40px;
@@ -905,10 +880,10 @@ ul {
     color: rgb(255, 255, 255);
 }
 
+
 .active {
     text-decoration: underline;
 }
-
 #container #produce2 {
     height: 314px;
     width: 1000px;
@@ -1004,6 +979,8 @@ ul {
     cursor: pointer;
     position: relative;
 }
+
+
 /*第二个商品类表*/
 #dress {
     height: 1260px;
@@ -1012,9 +989,10 @@ ul {
 }
 
 .dress_title {
-    height: 95px;
+    height: 45px;
     width: 1160px;
     background: url(http://haitao.nosdn5.127.net/iregt8b878_1000_95.jpg?imageView&thumbnail=0x95&quality=90) no-repeat center top;
+    margin-top: 20px;
 }
 
 .cloth {

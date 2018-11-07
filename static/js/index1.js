@@ -162,7 +162,7 @@ $(function () {
         var size = 9 + 20 * index + "%";
         $(".goods span").css("left", size);
         var sign = $("#container .sign");
-        sign.eq(index).show().siblings("#container .sign").hide();
+        $(".sign").eq(index).show().siblings("#container .sign").hide();
     })
 
     //服饰

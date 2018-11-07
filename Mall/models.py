@@ -24,8 +24,8 @@ class Slideshow(models.Model):
     img = models.CharField(max_length=100)
 
 
-# 基础类
-class Base(models.Model):
+class Goods(models.Model):
+    smallimg = models.CharField(max_length=100)  # 1 2
     img = models.CharField(max_length=100)
     packet = models.CharField(max_length=20)
     information = models.CharField(max_length=50)
@@ -33,40 +33,26 @@ class Base(models.Model):
     each = models.CharField(max_length=20, null=True)
     price = models.IntegerField()
     purchase = models.IntegerField()
+    right = models.CharField(max_length=40, null=True)  # !1 2
+    goods_type = models.IntegerField(default=1)
 
-    class Meta:
-        abstract = True
-
-
-# 纸尿裤
-class Diapers(Base):
-    smallimg = models.CharField(max_length=100)
-
-
-# 奶粉
-class Milk_powder(Base):
-    smallimg = models.CharField(max_length=100)
+    @classmethod
+    def createGoods(cls, smallimg, img, packet, information, rated, each, price, purchase, right):
+        goods = Goods(smallimg=smallimg, img=img, packet=packet, information=information, rated=rated, each=each,
+                      price=price, purchase=purchase, right=right)
+        return goods
+    # class Meta:
+    #     db_table = "Goods"
 
 
-# 保健
-class Care(Base):
-    smallimg = models.CharField(max_length=100)
-    right = models.CharField(max_length=40, null=True)
+# 购物车
+class Cart(models.Model):
+    user = models.ForeignKey(User)
+    goods = models.ForeignKey(Goods)
+    number = models.IntegerField()
+    is_select = models.BooleanField(default=True)
 
-
-# 童装童鞋
-class Children_clothes(Base):
-    smallimg = models.CharField(max_length=100)
-    right = models.CharField(max_length=40, null=True)
-
-
-# 孕妈专区
-class Pregnant(Base):
-    smallimg = models.CharField(max_length=100)
-    right = models.CharField(max_length=40, null=True)
-
-
-# 服饰
-class Dress(Base):
-    smallimg = models.CharField(max_length=100)
-    right = models.CharField(max_length=40, null=True)
+    @classmethod
+    def createCart(cls, user, goods, number, is_select):
+        cart = Cart(user=user, goods=goods, number=number, is_select=is_select)
+        return cart
