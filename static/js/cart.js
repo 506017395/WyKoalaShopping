@@ -73,7 +73,7 @@ $(function () {
     })
 
     // fun()
-    function fun() {
+    /*function fun() {
         var goodsList = $.cookie("cart");
         if (goodsList) {
 
@@ -299,7 +299,7 @@ $(function () {
 //      finall.append(p1,p2,p3)
 //      $(".car_box").append(finall);
         }
-    }
+    }*/
 
     //点击选中
 //   $(".D li").on("click","#"+ i +" ,function(){
@@ -353,9 +353,9 @@ $(function () {
 //   	}
 //      })
 
-    $("div").on("click", "input", function () {
-        console.log("你好");
-    })
+    // $("div").on("click", "input", function () {
+    //     console.log("你好");
+    // })
 //      span1.prop("checked",true);
 //      li1.find(":checkbox").prop("checked",true);
 //      span1.click(function(){
@@ -384,14 +384,7 @@ $(function () {
 //   		P1_span1.find("b").html(0)
 //   	}
 //   })
-    //全部选中
-    $(".f1 .div1").find(":checkbox").click(function () {
-        if ($(this).is(":checked")) {
-            $(":checkbox").prop("checked", true)
-        } else {
-            $(":checkbox").prop("checked", false)
-        }
-    })
+
 //      $(".D li").eq(0).find("input").click(function(){
 //    	if($(this).is(":checked")){
 //    		$(":checkbox").prop("checked",true);
@@ -401,7 +394,7 @@ $(function () {
 //    })
 //   //选中和不 选中的 金额问题
 //   
-    $(".D li").on("click", ".a_left", function () {
+    /*$(".D li").on("click", ".a_left", function () {
 
         goodslist_sub = JSON.parse($.cookie("cart"))
 
@@ -421,9 +414,9 @@ $(function () {
         window.location.reload();
         Number1 = num;
 //					$(".money").html()
-    })
+    })*/
 
-    $(".D li").on("click", ".a_right", function () {
+   /* $(".D li").on("click", ".a_right", function () {
         goodslist_add = JSON.parse($.cookie("cart"))
         for (var i = 0; i < goodslist_add.length; i++) {
             var obj = goodslist_add[i];
@@ -441,7 +434,8 @@ $(function () {
         fun();
         console.log($.cookie("cart"))
         window.location.reload();
-    })
+    })*/
+
 //  $(".D li").on("click",".selet",function(){
 //  	$(".all").height($("body").height());
 //      $(".all").width($("body").width());
@@ -465,7 +459,8 @@ $(function () {
 //  })
 //   
 //   //删除cookie
-    $(".D li").last().click(function () {
+
+   /* $(".D li").last().click(function () {
 //
 //   	console.log(11)
         $(".all").height($("body").height());
@@ -487,8 +482,9 @@ $(function () {
             $(".all").hide()
             $(".core").hide()
         })
-    })
-//     去逛逛吧
+    })*/
+
+   //     去逛逛吧
     $(".Boxes_div p").first().find("a").click(function () {
         $(this).css("text-decoration", "underline");
         location.href = "商品详情.html";

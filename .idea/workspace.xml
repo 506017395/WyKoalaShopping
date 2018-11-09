@@ -1,38 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="306463e0-4239-421e-9946-58ff856ccd88" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+    <list default="true" id="44e5d555-2f49-4bf6-b423-b657fe8717a6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/KoalaShopping.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/db404101-b60d-4b9e-81ee-684cbdd2779b.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KoalaShopping/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/KoalaShopping/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mall/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mall/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mall/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mall/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mall/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mall/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/cart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/detail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/code/1362.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/code/2707.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/code/2950.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/code/3760.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/code/1329.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/code/2813.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/code/7449.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/code/8601.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/code/8617.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/code/95.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/json/index7.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/json/index7.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/detail.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/KoalaShopping$demo.coverage" NAME="demo Coverage Results" MODIFIED="1541184989586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/static/json" />
-    <SUITE FILE_PATH="coverage/WyKoalaShopping$demo.coverage" NAME="demo Coverage Results" MODIFIED="1541594545963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/static/json" />
-    <SUITE FILE_PATH="coverage/WyKoalaShopping$myitchat__1_.coverage" NAME="myitchat (1) Coverage Results" MODIFIED="1541606744203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/WyKoalaShopping$itchat.coverage" NAME="itchat Coverage Results" MODIFIED="1541612729179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/WyKoalaShopping$wechat.coverage" NAME="wechat Coverage Results" MODIFIED="1541615071211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/WyKoalaShopping$myitchat.coverage" NAME="myitchat Coverage Results" MODIFIED="1541606530059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -52,150 +42,41 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="1606900623">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="29" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.12" value="6" />
-          <entry key="project.open.time.13" value="6" />
-          <entry key="project.open.time.14" value="1" />
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="2" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="3" />
-          <entry key="project.open.time.8" value="3" />
-          <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="33" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="JPG" value="1" />
-          <entry key="Mall_care" value="2" />
-          <entry key="Mall_children_clothes" value="4" />
-          <entry key="Mall_diapers" value="6" />
-          <entry key="Mall_dress" value="2" />
-          <entry key="Mall_milk_powder" value="3" />
-          <entry key="Mall_pregnant" value="2" />
-          <entry key="Mall_slideshow" value="1" />
-          <entry key="css" value="10" />
-          <entry key="django_migrations" value="3" />
-          <entry key="html" value="17" />
-          <entry key="jpg" value="1" />
-          <entry key="js" value="14" />
-          <entry key="json" value="50" />
-          <entry key="mall_slideshow" value="1" />
-          <entry key="md" value="1" />
-          <entry key="png" value="1" />
-          <entry key="py" value="35" />
-          <entry key="sql" value="4" />
-          <entry key="user" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CSS" value="10" />
-          <entry key="Database Element" value="28" />
-          <entry key="HTML" value="17" />
-          <entry key="Image" value="3" />
-          <entry key="JSON" value="50" />
-          <entry key="JavaScript" value="14" />
-          <entry key="Markdown" value="1" />
-          <entry key="Python" value="35" />
-          <entry key="Scratch" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="cell" value="9" />
-          <entry key="css" value="462" />
-          <entry key="html" value="2136" />
-          <entry key="js" value="136" />
-          <entry key="py" value="3616" />
-          <entry key="sql" value="53" />
-          <entry key="txt" value="15" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="CSS" value="462" />
-          <entry key="HTML" value="2136" />
-          <entry key="JavaScript" value="136" />
-          <entry key="PLAIN_TEXT" value="15" />
-          <entry key="Python" value="3616" />
-          <entry key="Scratch" value="62" />
-        </counts>
-      </usages-collector>
-    </session>
     <session id="-1065901175">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.20" value="1" />
-          <entry key="project.open.time.22" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="10" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="Mall_goods" value="2" />
-          <entry key="Mall_slideshow" value="1" />
-          <entry key="css" value="5" />
-          <entry key="html" value="7" />
-          <entry key="jpg" value="2" />
-          <entry key="js" value="10" />
-          <entry key="json" value="16" />
-          <entry key="png" value="2" />
-          <entry key="py" value="28" />
-          <entry key="rnc" value="1" />
-          <entry key="sql" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CSS" value="5" />
-          <entry key="Database Element" value="3" />
-          <entry key="HTML" value="7" />
-          <entry key="Image" value="4" />
-          <entry key="JSON" value="16" />
-          <entry key="JavaScript" value="10" />
-          <entry key="Python" value="28" />
-          <entry key="RNG Compact" value="1" />
-          <entry key="SQL" value="2" />
-          <entry key="Scratch" value="1" />
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cell" value="20" />
-          <entry key="css" value="638" />
-          <entry key="html" value="1096" />
-          <entry key="js" value="805" />
-          <entry key="py" value="1765" />
-          <entry key="txt" value="7" />
+          <entry key="html" value="314" />
+          <entry key="js" value="856" />
+          <entry key="py" value="1242" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="638" />
-          <entry key="HTML" value="1096" />
-          <entry key="JavaScript" value="805" />
-          <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="1765" />
-          <entry key="Scratch" value="20" />
+          <entry key="HTML" value="314" />
+          <entry key="JavaScript" value="856" />
+          <entry key="Python" value="1242" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="2" />
+          <entry key="json" value="1" />
+          <entry key="py" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JSON" value="1" />
+          <entry key="JavaScript" value="2" />
+          <entry key="Python" value="10" />
         </counts>
       </usages-collector>
     </session>
@@ -205,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Mall/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1254">
-              <caret line="57" column="70" selection-start-line="57" selection-start-column="70" selection-end-line="57" selection-end-column="70" />
+            <state relative-caret-position="178">
+              <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -214,8 +95,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Mall/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+            <state relative-caret-position="264">
+              <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -223,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Mall/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="160" column="27" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="27" />
+            <state relative-caret-position="167">
+              <caret line="157" column="50" selection-start-line="157" selection-start-column="50" selection-end-line="157" selection-end-column="50" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -233,109 +117,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/json/index7.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/cart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="94" column="19" lean-forward="true" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
-              <folding>
-                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="167">
+              <caret line="124" column="50" selection-start-line="124" selection-start-column="44" selection-end-line="124" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/cart.css">
+        <entry file="file://$PROJECT_DIR$/static/js/cart1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="526" column="1" lean-forward="true" selection-start-line="526" selection-start-column="1" selection-end-line="526" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/cart.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
-              <folding>
-                <element signature="e#1884#9516#0" />
-                <element signature="e#9533#9582#0" />
-                <element signature="e#11030#11061#0" />
-                <element signature="e#11063#11098#0" />
-                <element signature="e#12032#12188#0" />
-                <element signature="e#12190#12246#0" />
-                <element signature="e#12478#12961#0" />
-                <element signature="e#13011#13500#0" />
-                <element signature="e#13502#13548#0" />
-                <element signature="e#14257#14924#0" />
-                <element signature="e#14998#15091#0" />
-              </folding>
+            <state relative-caret-position="233">
+              <caret line="67" column="45" lean-forward="true" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fanye</find>
-      <find>div</find>
-      <find>.red</find>
-      <find>red</find>
-      <find>3 care.id</find>
-      <find>{% url &quot;K:detail&quot; %}</find>
-      <find>care.</find>
-      <find>../static/img/</find>
-      <find>first</find>
-      <find>.img/</find>
-      <find>.dress_title</find>
-      <find>old_msg_id</find>
-      <find>msg_dict</find>
-      <find>face_bug</find>
-      <find>bigArea</find>
-      <find>cost_span1</find>
-      <find>smallArea</find>
-      <find>car_span3</find>
-      <find>smallImg</find>
-      <find>btnaddcart</find>
-      <find>sum</find>
-      <find>buy</find>
-      <find>jia</find>
-      <find>car</find>
-      <find>cost_span2</find>
-      <find>car_box</find>
-      <find>contant</find>
-      <find>GG</find>
-      <find>fun()</find>
-      <find>cartul</find>
+      <find>img/</find>
     </findStrings>
     <replaceStrings>
-      <replace>{% url &quot;K:detail&quot; 's' 1%}</replace>
-      <replace>url &quot;K:detail&quot; '1' 1%}</replace>
-      <replace>{% url &quot;K:detail&quot; 1 1 %}</replace>
-      <replace>{% static &quot;js/</replace>
-      <replace>{% url &quot;K:detail&quot; 12 44 %}</replace>
-      <replace>{% url &quot;K:detail&quot; &quot;RGB&quot; 44 %}</replace>
-      <replace>{% url &quot;K:detail&quot; %}</replace>
-      <replace />
-      <replace>{% url &quot;K:detail&quot; goods.id %}</replace>
-      <replace>goods.</replace>
-      <replace>img/</replace>
-      <replace>// fun()</replace>
+      <replace>/static/img/</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -344,39 +159,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/manage.py" />
-        <option value="$PROJECT_DIR$/static/js/resign.js" />
-        <option value="$PROJECT_DIR$/templates/login.html" />
-        <option value="$PROJECT_DIR$/templates/resign.html" />
-        <option value="$PROJECT_DIR$/Mall/demo.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/78c6df7f-dc66-4383-ae95-038ff4d25389/console_1.sql" />
-        <option value="$PROJECT_DIR$/static/json/index2.json" />
-        <option value="$PROJECT_DIR$/static/json/index3.json" />
-        <option value="$PROJECT_DIR$/static/json/index4.json" />
-        <option value="$PROJECT_DIR$/static/json/index6.json" />
-        <option value="$PROJECT_DIR$/static/json/index7.json" />
-        <option value="$PROJECT_DIR$/static/json/demo.py" />
-        <option value="$PROJECT_DIR$/static/json/index.json" />
-        <option value="$PROJECT_DIR$/myitchat.py" />
-        <option value="$PROJECT_DIR$/static/js/index1.js" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/static/css/index.css" />
-        <option value="$PROJECT_DIR$/static/json/index5.json" />
-        <option value="$USER_HOME$/Desktop/myitchat.py" />
-        <option value="$PROJECT_DIR$/itchat.py" />
-        <option value="$PROJECT_DIR$/wechat.py" />
-        <option value="$PROJECT_DIR$/KoalaShopping/settings.py" />
-        <option value="$PROJECT_DIR$/static/css/detail.css" />
-        <option value="$PROJECT_DIR$/static/js/datail1.js" />
-        <option value="$PROJECT_DIR$/Mall/urls.py" />
-        <option value="$PROJECT_DIR$/templates/detail.html" />
-        <option value="$PROJECT_DIR$/static/js/detail1.js" />
-        <option value="$PROJECT_DIR$/static/js/detail.js" />
-        <option value="$PROJECT_DIR$/Mall/models.py" />
-        <option value="$PROJECT_DIR$/Mall/views.py" />
         <option value="$PROJECT_DIR$/static/js/cart.js" />
-        <option value="$PROJECT_DIR$/static/css/cart.css" />
+        <option value="$PROJECT_DIR$/Mall/urls.py" />
         <option value="$PROJECT_DIR$/templates/cart.html" />
+        <option value="$PROJECT_DIR$/static/js/cart1.js" />
+        <option value="$PROJECT_DIR$/Mall/views.py" />
+        <option value="$PROJECT_DIR$/static/json/index7.json" />
       </list>
     </option>
   </component>
@@ -387,23 +175,28 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1436" />
-    <option name="y" value="69" />
-    <option name="width" value="905" />
-    <option name="height" value="543" />
+    <option name="x" value="229" />
+    <option name="y" value="124" />
+    <option name="width" value="895" />
+    <option name="height" value="550" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="WyKoalaShopping" type="b2602c69:ProjectViewProjectNode" />
               <item name="WyKoalaShopping" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WyKoalaShopping" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WyKoalaShopping" type="462c0819:PsiDirectoryNode" />
+              <item name="Mall" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WyKoalaShopping" type="b2602c69:ProjectViewProjectNode" />
@@ -416,25 +209,23 @@
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="json" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="WyKoalaShopping" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WyKoalaShopping" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static/js" />
-      <recent name="$PROJECT_DIR$/static/css" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -448,75 +239,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django server.KoalaShopping">
-    <configuration name="demo" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="KoalaShopping" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/static/json" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/static/json/demo.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="itchat" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="KoalaShopping" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/itchat.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="wechat" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="KoalaShopping" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wechat.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="KoalaShopping" type="Python.DjangoServer" factoryName="Django server">
-      <module name="KoalaShopping" />
+  <component name="RunManager">
+    <configuration name="WyKoalaShopping" type="Python.DjangoServer" factoryName="Django server">
+      <module name="WyKoalaShopping" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -539,59 +264,45 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Django server.KoalaShopping" />
-      <item itemvalue="Python.demo" />
-      <item itemvalue="Python.itchat" />
-      <item itemvalue="Python.wechat" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.wechat" />
-        <item itemvalue="Python.itchat" />
-        <item itemvalue="Python.demo" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="306463e0-4239-421e-9946-58ff856ccd88" name="Default Changelist" comment="" />
-      <created>1540906002002</created>
+      <changelist id="44e5d555-2f49-4bf6-b423-b657fe8717a6" name="Default Changelist" comment="" />
+      <created>1541762482074</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1540906002002</updated>
+      <updated>1541762482074</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1366" y="0" width="1024" height="768" extended-state="6" />
+    <frame x="52" y="27" width="1314" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2281059" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24921383" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23113208" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.30031446" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.318555" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" weight="0.32840723" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.29402515" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32861635" />
       <window_info anchor="bottom" id="Python Console" order="12" />
-      <window_info anchor="bottom" id="Database Console" order="13" weight="0.32840723" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.26680243" />
+      <window_info anchor="right" id="Database" order="4" weight="0.3294025" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,289 +311,91 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.virtualenvs/evn/lib/python3.6/site-packages/pymysql/err.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://32cfc3db-346c-4bf0-850f-b3d7bea484b0/schema/wykoala/table/Mall_diapers" />
-    <entry file="das://32cfc3db-346c-4bf0-850f-b3d7bea484b0/schema/wykoala/table/Mall_pregnant" />
-    <entry file="das://32cfc3db-346c-4bf0-850f-b3d7bea484b0/schema/wykoala/table/Mall_children_clothes" />
-    <entry file="file://$PROJECT_DIR$/templates/goodsdetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/json/hot.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-862">
-          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://32cfc3db-346c-4bf0-850f-b3d7bea484b0/schema/wykoala/table/Mall_milk_powder" />
-    <entry file="das://32cfc3db-346c-4bf0-850f-b3d7bea484b0/schema/wykoala/table/Mall_dress" />
-    <entry file="file://$USER_HOME$/.virtualenvs/evn/lib/python3.6/site-packages/django/core/handlers/exception.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/evn/lib/python3.6/site-packages/django/utils/deprecation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
+        <state relative-caret-position="158">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/replace.js">
+    <entry file="file://$USER_HOME$/.virtualenvs/evn/lib/python3.6/site-packages/django/core/handlers/exception.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        <state relative-caret-position="184">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>
-    <entry file="das://32cfc3db-346c-4bf0-850f-b3d7bea484b0/schema/wykoala/table/Mall_care" />
-    <entry file="file://$PROJECT_DIR$/static/json/index7.json">
+    <entry file="file://$PROJECT_DIR$/static/js/cart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/json/index3.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="32" column="13" selection-end-line="51" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/json/demo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="51" column="12" lean-forward="true" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/json/index6.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="4" selection-end-line="56" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/db404101-b60d-4b9e-81ee-684cbdd2779b/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://db404101-b60d-4b9e-81ee-684cbdd2779b/schema/wykoala/table/Mall_slideshow" />
-    <entry file="file://$PROJECT_DIR$/static/json/index.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myitchat.py" />
-    <entry file="file://$PROJECT_DIR$/mysql.sql" />
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/common.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="127" column="18" selection-start-line="127" selection-start-column="18" selection-end-line="127" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/child.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/cloth5.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/json/index2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/json/index5.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/json/index4.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://db404101-b60d-4b9e-81ee-684cbdd2779b/schema/wykoala/table/Mall_goods" />
-    <entry file="file://$PROJECT_DIR$/static/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="990" column="14" lean-forward="true" selection-start-line="990" selection-start-column="14" selection-end-line="990" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/itchat.py" />
-    <entry file="file://$USER_HOME$/Desktop/myitchat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/evn/lib/python3.6/site-packages/itchat/storage/messagequeue.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wechat.py" />
-    <entry file="file://$PROJECT_DIR$/KoalaShopping/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KoalaShopping/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/index1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="163" column="29" lean-forward="true" selection-start-line="163" selection-start-column="29" selection-end-line="163" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="35" column="112" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="35" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/fix2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/detail.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="1377" column="21" selection-start-line="1377" selection-start-column="12" selection-end-line="1377" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/bigzoom1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/evn/lib/python3.6/site-packages/django/core/handlers/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="184" selection-start-line="184" selection-end-line="184" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="388" column="6" lean-forward="true" selection-start-line="388" selection-start-column="6" selection-end-line="388" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/detail1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-110">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/json/index8.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mall/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1254">
-          <caret line="57" column="70" selection-start-line="57" selection-start-column="70" selection-end-line="57" selection-end-column="70" />
+        <state relative-caret-position="49">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Mall/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        <state relative-caret-position="264">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Mall/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="124" column="50" selection-start-line="124" selection-start-column="44" selection-end-line="124" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/evn/lib/python3.6/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="184" selection-start-line="184" selection-end-line="184" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/cart1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="67" column="45" lean-forward="true" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Mall/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="160" column="27" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="27" />
+        <state relative-caret-position="167">
+          <caret line="157" column="50" selection-start-line="157" selection-start-column="50" selection-end-line="157" selection-end-column="50" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/cart.js">
+    <entry file="file://$PROJECT_DIR$/static/json/index7.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
-          <folding>
-            <element signature="e#1884#9516#0" />
-            <element signature="e#9533#9582#0" />
-            <element signature="e#11030#11061#0" />
-            <element signature="e#11063#11098#0" />
-            <element signature="e#12032#12188#0" />
-            <element signature="e#12190#12246#0" />
-            <element signature="e#12478#12961#0" />
-            <element signature="e#13011#13500#0" />
-            <element signature="e#13502#13548#0" />
-            <element signature="e#14257#14924#0" />
-            <element signature="e#14998#15091#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/cart.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="526" column="1" lean-forward="true" selection-start-line="526" selection-start-column="1" selection-end-line="526" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="94" column="19" lean-forward="true" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="132">
+          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
         </state>
       </provider>
     </entry>

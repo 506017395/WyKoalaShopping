@@ -1,5 +1,4 @@
 import hashlib
-import io
 import os
 import random
 import json
@@ -26,7 +25,7 @@ def index(request):
         "goods_count": goods_count,
     }
 
-    token = request.COOKIES.get("token")  # 获取token
+    token = request.session.get("token")  # 获取token
 
     if token:  # 判断是否找到用户
         user = User.objects.get(token=token)  # 根据token查找用户
@@ -47,17 +46,18 @@ def login(request):
         user_set = User.objects.filter(uaccount=uname, upwd=upwd)
         if user_set.exists():
             user = user_set.first()
-            response = redirect("K:index")
-            response.set_cookie("token", user.token)
-            return response
+            # token = uuid.uuid5(uuid.uuid4(), 'test')
+            # user.token = token
+            # user.save()
+            request.session["token"] = user.token
+            return redirect("K:index")
         return render(request, "login.html")
 
 
 # 注销
 def logout(request):
-    response = redirect("K:index")
-    response.delete_cookie("token")
-    return response
+    request.session.flush()
+    return redirect("K:index")
 
 
 # 注册
@@ -75,9 +75,8 @@ def resign(request):
                                     token)
         try:
             user_info.save()
-            response = redirect("K:index")
-            response.set_cookie("token", user_info.token)
-            return response
+            request.session["token"] = user_info.token
+            return redirect("K:index")
         except Exception as e:
             return render(request, "resign.html")
 
@@ -136,7 +135,7 @@ def goodsdetail(request):
 
 # 商品详细2
 def detail(request, goods_id, ):
-    token = request.COOKIES.get("token")  # 获取token
+    token = request.session.get("token")  # 获取token
     result = {}
     if token:  # 判断是否找到用户
         user = User.objects.get(token=token)  # 根据token查找用户
@@ -148,7 +147,7 @@ def detail(request, goods_id, ):
 
 # 购物车
 def cart(request):
-    token = request.COOKIES.get("token")  # 获取token
+    token = request.session.get("token")  # 获取token
     result = {}
     if token:  # 判断是否找到用户
         user = User.objects.get(token=token)  # 根据token查找用户
@@ -156,16 +155,21 @@ def cart(request):
         carts = Cart.objects.filter(user=user)
         result["carts"] = carts
         cart_total = 0
+        all_select = True if len(carts) else False
         for cart in carts:
+            if not cart.is_select:
+                all_select = False
+                continue
             cart_total += cart.total
         result["carts_total"] = cart_total
+        result["all_select"] = all_select
         return render(request, "cart.html", context=result)
     return render(request, "login.html")
 
 
 # 添加到购物车
 def addcart(request):
-    token = request.COOKIES.get("token")  # 获取token
+    token = request.session.get("token")  # 获取token
     result = {}
     if token:  # 判断是否找到用户
         user = User.objects.get(token=token)  # 根据token查找用户
@@ -191,8 +195,83 @@ def addcart(request):
 
 # 统计购物车数量
 def countcart(request):
-    cart = Cart.objects.filter(user=User.objects.filter(token=request.COOKIES.get("token")))
+    cart = Cart.objects.filter(user=User.objects.filter(token=request.session.get("token")))
     result = {
         "cartsum": len(cart)
+    }
+    return JsonResponse(result)
+
+
+# 购物车商品数量控制
+def goodsnum(request):
+    user = User.objects.get(token=request.session.get("token"))
+    goods = request.GET.get("goodsid")
+    goods_num = request.GET.get("goodsnum")
+    total = request.GET.get("total")
+    old_cart = Cart.objects.all()
+    cart = Cart.objects.get(user=user, goods=goods)
+    cart.number = goods_num
+    cart.total = total
+    cart.save()
+    count_total = 0
+    for old_cart in old_cart:
+        if not old_cart.is_select: continue
+        count_total += old_cart.total
+    return JsonResponse({"status": 1, "msg": "操作成功", "total": count_total})
+
+
+# 购物车全部选中
+def allselect(request):
+    user = User.objects.get(token=request.session.get("token"))
+    is_all_select = request.GET.get("isselect")
+    sele_status = True if request.GET.get("selestatus") == "true" else False
+
+    result = {}
+    count_total = 0
+    if is_all_select == "all":
+        carts = Cart.objects.filter(user=user)
+
+        for cart in carts:
+            cart.is_select = sele_status
+            cart.save()
+            count_total += cart.total
+        result["count_total"] = count_total if sele_status else 0
+    else:
+        goods = Goods.objects.get(pk=int(request.GET.get("goodsid")))
+        cart = Cart.objects.get(user=user, goods=goods)
+        cart.is_select = sele_status
+        cart.save()
+
+        new_cart = Cart.objects.filter(user=user)
+        all_select = True if len(new_cart) else False
+        for newc in new_cart:
+            if not newc.is_select:
+                all_select = False
+                continue
+            count_total += newc.total
+        result["all_select"] = all_select
+        result["count_total"] = count_total
+    return JsonResponse(result)
+
+
+# 删除选中的购物车商品
+def delcart(request):
+    cart_id = request.GET.get("cartid")
+    cart_id_list = cart_id.split(",")
+    for cartid in cart_id_list:
+        pass
+        Cart.objects.get(pk=int(cartid)).delete()
+    carts = Cart.objects.filter(user=User.objects.get(token=request.session.get("token")))
+
+    count_total = 0
+    all_select = True if len(carts) else False
+    for cart in carts:
+        if not cart.is_select:
+            all_select = False
+            continue
+        count_total += cart.total
+    result = {
+        "count_total": count_total,
+        "all_select": all_select,
     }
     return JsonResponse(result)
