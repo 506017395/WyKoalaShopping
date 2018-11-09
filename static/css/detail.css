@@ -725,11 +725,12 @@ ul {
 
 .bigArea {
     position: absolute;
-    left: 450px;
+    left: 405px;
     overflow: hidden;
     height: 400px;
     width: 400px;
     display: none;
+    z-index: 99;
 }
 
 .smallArea {

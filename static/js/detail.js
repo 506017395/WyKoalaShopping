@@ -303,9 +303,9 @@ $(function () {
     //右边的购物车
     $(".car ul li").mouseenter(function () {
         var index = $(this).index() + 1;
-        $(this).find("img").attr("src", "../static/img/fix" + 4 * index + ".png")
+        $(this).find("img").attr("src", "/static/img/fix" + 4 * index + ".png")
         $(".car ul li").mouseleave(function () {
-            $(this).find("img").attr("src", "../static/img/fix" + index + ".png")
+            $(this).find("img").attr("src", "/static/img/fix" + index + ".png")
         })
     })
     //右边的购物车   滚动定位
@@ -329,70 +329,16 @@ $(function () {
             $(".car").css({"position": "absolute", top: 52, right: -58});
         }
         //记录购物车
-
         //点击加入购物车
         //飞到购物车
-
-
     })
 
-    var sum = 1;
+    /*var sum = 1;
     var sums;
 //				 $(".car ul li span").html()
-    var offset = $(".cost_span2").offset();
+    var offset = $(".cost_span2").offset();*/
 
-    $(".cost_span2").click(function (e) {
-
-        //将当前点击的商品加入购物车(使用cookie存储商品信息)
-//					var goodsId = $(this).parent().find(".goodsId").html(); //商品ID
-        var goodsName = $(".right_top").find("span").eq(2).html(); //商品名称
-        var goodsPrice = $(".price_content .span2").find("i").html(); //商品价格
-        var oldPrice = $(".price_content .span4").find("i").html();
-        var goodsSrc = $(".fanye .red").find("img").attr("src");
-        var goodsDress = $(".fuwu .fuwu_span1").find("b").html();
-        //如果是第一次加入购物车(购物车中还没有商品, cookie中没有cart), 那就给一个空的数组
-        //如果是第二次加入购物车(购物车中已经存在商品, cookie中存在cart), 那就在原来保存在cookie中的商品基础上添加新的商品
-        //console.log( typeof $.cookie("cart") ); //string
-        var goodsList = $.cookie("cart") ? JSON.parse($.cookie("cart")) : [];
-
-        //先判断购物车中是否存在我即将要添加的商品
-        var isExists = false; //表示是否存在相同商品
-        for (var i = 0; i < goodsList.length; i++) {
-            sum = goodsList[i].num
-            //如果存在相同的商品, 则把数量++, 不需要重新添加新的商品
-            if (goodsName == goodsList[i].name) {
-                goodsList[i].num++;
-                isExists = true; //表示存在相同商品
-//							sum = goodsList[i].num;
-            }
-//						sum =  sum + goodsList[i].name
-//						if (goodsName !== goodsList[i].name) {
-////							sum = sum+goodsName.num;
-////							isExists = true; //表示存在相同商品
-//                                 sum++;
-//						}
-//					var 	zong += goodsList[i].he
-//					console.log(zong)
-        }
-//					console.log(goodsList.length)
-        //如果不存在相同商品, 则添加新商品
-        if (!isExists) {
-            //添加一个新商品到购物车
-            var goods = {
-//							id: goodsId,
-                name: goodsName,
-                price: goodsPrice,
-                old: oldPrice,
-                src: goodsSrc,
-                dress: goodsDress,
-                num: 1,
-                he: sum
-            }
-            goodsList.push(goods);
-        }
-
-        $.cookie("cart", JSON.stringify(goodsList), {expires: 22, path: "/"});
-        console.log($.cookie("cart"));
+    /*$(".cost_span2").click(function (e) {
 
         $(".car ul li span").html(sum)
         if ($(".car ul li span").html() == "") {
@@ -401,13 +347,9 @@ $(function () {
             $(".car ul li span").css("display", "block")
         }
 
-//	
-
-
-//						$("#addToCart").click(function(e){
         var endoffset = $(".car ul li .car_span2").offset();
         var flyer = $("<img class='u-flyer'/>");
-        flyer.attr("src", "../static/img/bigzoom1.jpg");
+        flyer.attr("src", $(".smallImg").attr("src"));
         flyer.fly({
             start: {
                 left: offset.left + $(".cost_span2").width() / 2,
@@ -417,7 +359,6 @@ $(function () {
             },
             end: {
                 left: endoffset.left + 20,
-
                 top: endoffset.top - $(document).scrollTop() + 20,
                 width: 0,
                 height: 0
@@ -425,27 +366,12 @@ $(function () {
             onEnd: function () {
 //							console.log("加入购物车成功!")
             }
-
         });
-//					console.log($(".u-flyer").width())//可以输出
-//                   if($(".u-flyer").width()==0){
         $(".car ul li .car_span3").show();
         $(".car ul li .car_span3").animate({top: "20px", opacity: "0"}, 1000, function () {
             $(".car ul li .car_span3").css({"position": "absolute", "top": "52px", "opacity": "1", "display": "none"})
         })
-//                   var cars = $.cookie("cars");  	 
-//                     if(cars){
-//                     	cars = JSON.parse($.cookie("cars"));
-//                     	for(var i=0;i<cars.length;i++){
-//                     	 sums += cars.num
-//                     	 console.log(cars)
-//                     	}
-//                     }
-//                     sum = sums
-//                      console.log(sum)
-
-//                  $.cookie("cars", JSON.stringify(cars), {expires:22, path:"/"});
-    })
+    })*/
 
 //              $(".car ul li .car_span3").hide();
 //                     	  $(".car ul li .car_span3").animate({top:"-20px",opacity:"1"},0)       
@@ -459,7 +385,7 @@ $(function () {
 
     //点击购物车  跳转  购物车页面
     $(".car ul li").eq(1).click(function () {
-        location.href = "catr.html"
+        location.href = "/cart/"
     })
 
 

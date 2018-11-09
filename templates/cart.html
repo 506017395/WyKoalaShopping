@@ -1,128 +1,169 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<script type="text/javascript" src="{% static 'js/jquery-1.12.0.js' %}" ></script>
-		<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}" ></script>
-		<script type="text/javascript" src="{% static 'js/cart.js' %}" ></script>
-		<link rel="stylesheet" href="{% static 'css/cart.css' %}" />
-	</head>
-	<body style="position: relative;">
-		<div id="header">
-			<div class="top" style="position: relative;">
-			  <div class="topnext">
-				<ul class="top_left">
-					<li>考拉欢迎你！</li>
-					<li class="enter"><a href="#">登入</a></li>
-					<li><a href="#">免费注册</a></li>
-					<li class="top_left_last"><img src="{% static 'img/phone(1).png' %}"><a href="#">手机考拉海沟</a></li>
-				</ul>
-				<ul class="top_right">
-					<li><img src="{% static 'img/fly.png' %}"><a href="#">每日签到</a></li>
-					<li><a href="#">我的订单</a></li>
-					<li class="center" style="position: relative;"><a href="#">个人中心</a>
-						<ul class="center_nav">
-				    	<li><a href="#">我的优惠劵</a></li>
-				    	<li><a href="#">我的考拉豆</a></li>
-				    	<!--<hr />-->
-				    	<li><a href="#">账户安全</a></li>
-				    	<li><a href="#">我的实名认证</a></li>
-				    	<!--<hr />-->
-				    	<li><a href="#">我收藏的商品</a></li>
-				    	<li><a href="#">我关注的品牌</a></li>
-				    	<!--<hr />-->
-				    	<li><a href="#">售后管理</a></li>
-				    </ul>
-					</li>
-					<li class="serve" style="position: relative;"><a href="#">客户服务</a>
-						<ul class="serve_nav">
-					        <li><img src="{% static 'img/serve.png' %}"><a href="#">联系客服</a></li>
-					        <li><img src="{% static 'img/question.png' %}"><a href="#">帮助中心</a></li>
-				        </ul>
-					</li>
-					<li><img src="{% static 'img/moeny.png' %}"><a href="#">游戏充值</a></li>
-					<li><a href="#">消费者告知书</a></li>
-					<li id="more" style="position: relative;"><a href="#">更多</a>
-						<ul class="more_nav">
-					        <li><a href="#">收藏本站</a></li>
-					        <!--<hr />-->
-					        <li><a href="#">新浪微博</a></li>
-					        <li><a href="#">微信公众号</a></li>
-					        <li><a href="#">易信公众号</a></li>
-					       <!-- <hr />-->
-					        <li><a href="#">招商合作</a></li>
-					        <li><a href="#">考拉招聘</a></li>
-				        </ul>
-					</li>
-
-
-				</ul>
-
-
-
-			  </div>
-			</div>
-		</div>
-<div class="header">
-	<div class="park">
-		<div class="park_right">
-			<ul>
-				<li class="red">我的购物车</li>
-				<li>提交订单</li>
-				<li>选择支付方式</li>
-			</ul>
-		</div>
-	</div>
-	<div class="contant">
-		<div class="car_box">
-			<div class="f1">
-
-					<div class="div1"><input type="checkbox"><span>全选</span></div>
-					<div class="div2">商品信息</div>
-					<div class="div3">单价(元)</div>
-					<div class="div4">数量</div>
-					<div class="div5">金额(元)</div>
-					<div class="div6">操作</div>
-
-			</div>
-		</div>
-		<div style="width: 1068px; height: 40px; border: 1px solid rgb(204, 204, 204); padding: 10px; margin-top: 40px; background: rgb(248, 248, 248);"><div style="width: 200px; height: 40px; float: left; font-size: 12px; line-height: 40px;"><input type="checkbox" style="display: inline-block; float: left; vertical-align: middle; margin-top: 13px;"><span style="display: inline-block; float: left; padding-left: 30px;">全选</span><span style="display: inline-block; float: left; padding-left: 30px;">删除选中商品</span></div><a href="javascript:" style="height: 60px; width: 120px; text-align: center; line-height: 60px; font-size: 18px; float: right; margin-top: -10px; margin-right: -10px; color: rgb(255, 255, 255); font-weight: 600; background: rgb(227, 20, 54);">去结算</a><div style="width: 377px; height: 42px; float: right; margin-right: 30px;"><p style="height: 22px; width: 391px; font-size: 12px;"><span style="padding-left: 50px;">已选商品<b style="color: red; font-size: 16px;" class="B"></b>件</span><span style="display: inline-block; padding-left: 30px;">总价(不含运费)</span><span class="money" style="color: red; font-size: 20px; font-weight: 800; padding-left: 30px;"></span></p><p style="height: 20px; width: 391px; font-size: 12px;"><span>活动优惠：-￥0.00</span><span style="padding-left: 20px;">商品应付总计：￥</span><span style="padding-left: 20px;">商品税费：￥185.17</span></p></div></div>
-
-
-		     </div>
-
-
-
-		</div>
-
-	<div class="Boxes">
-				<div class="Boxes_div">
-					<p>购物车里空空如也，赶紧去<a href="javascript:"> 逛逛吧&gt;</a></p>
-					<p>或者您可以先进行<a href="javascript:">  登录&gt;</a></p>
-				</div>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}"/>
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.0.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+</head>
+<body style="position: relative;">
+<div id="header">
+    <div class="top" style="position: relative;">
+        <div class="topnext">
+            <ul class="top_left">
+                <li>考拉欢迎你！</li>
+                {% if username %}
+                    <li class="enter"><a>{{ username }}</a></li>
+                    <li><a href="{% url "K:logout" %}">注销</a></li>
+                {% else %}
+                    <li class="enter"><a href="/login/">登入</a></li>
+                    <li><a href="/resign/">免费注册</a></li>
+                {% endif %}
+                <li class="top_left_last"><img src="{% static 'img/phone(1).png' %}"><a href="#">手机考拉海沟</a></li>
+            </ul>
+            <ul class="top_right">
+                <li><img src="{% static 'img/fly.png' %}"><a href="#">每日签到</a></li>
+                <li><a href="#">我的订单</a></li>
+                <li class="center" style="position: relative;"><a href="#">个人中心</a>
+                    <ul class="center_nav">
+                        <li><a href="#">我的优惠劵</a></li>
+                        <li><a href="#">我的考拉豆</a></li>
+                        <!--<hr />-->
+                        <li><a href="#">账户安全</a></li>
+                        <li><a href="#">我的实名认证</a></li>
+                        <!--<hr />-->
+                        <li><a href="#">我收藏的商品</a></li>
+                        <li><a href="#">我关注的品牌</a></li>
+                        <!--<hr />-->
+                        <li><a href="#">售后管理</a></li>
+                    </ul>
+                </li>
+                <li class="serve" style="position: relative;"><a href="#">客户服务</a>
+                    <ul class="serve_nav">
+                        <li><img src="{% static 'img/serve.png' %}"><a href="#">联系客服</a></li>
+                        <li><img src="{% static 'img/question.png' %}"><a href="#">帮助中心</a></li>
+                    </ul>
+                </li>
+                <li><img src="{% static 'img/moeny.png' %}"><a href="#">游戏充值</a></li>
+                <li><a href="#">消费者告知书</a></li>
+                <li id="more" style="position: relative;"><a href="#">更多</a>
+                    <ul class="more_nav">
+                        <li><a href="#">收藏本站</a></li>
+                        <!--<hr />-->
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">易信公众号</a></li>
+                        <!-- <hr />-->
+                        <li><a href="#">招商合作</a></li>
+                        <li><a href="#">考拉招聘</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
+</div>
+<div class="header">
+    <div class="park">
+        <div class="park_right">
+            <ul>
+                <li class="red">我的购物车</li>
+                <li>提交订单</li>
+                <li>选择支付方式</li>
+            </ul>
+        </div>
+    </div>
+    <div class="contant">
+        <div class="car_box">
+            <div class="f1">
+                <div class="div1"><input type="checkbox"><span>全选</span></div>
+                <div class="div2">商品信息</div>
+                <div class="div3">单价(元)</div>
+                <div class="div4">数量</div>
+                <div class="div5">金额(元)</div>
+                <div class="div6">操作</div>
+            </div>
 
+            <div class="cartinfo">
+                <div class="cartinfo1">
+                    <input type="checkbox"><span>杭州保税3号仓</span>
+                </div>
+                {% for cart in carts %}
+                    <ul class="cartul">
+                        <li class="cartli1"><input type="checkbox"></li>
+                        <li class="cartli2"><img id="0" src="{% static cart.goods.img %}">
+                        </li>
+                        <li class="cartli3">
+                            {{ cart.goods.rated }}
+                        </li>
+                        <li class="cartli4">
+                            <span class="cartli4span1">{{ cart.goods.purchase }}</span><span
+                                class="cartli4span2">{{ cart.goods.price }}</span><span
+                                class="cartli4span3">特价</span>
+                        </li>
+                        <li class="cartli5">
+                            <a class="a_left">-</a><a class="a_num">{{ cart.number }}</a><a class="a_right">+</a>
+                        </li>
+                        <li class="cartli6">
+                            {{ cart.total }}
+                        </li>
+                        <li class="cartli7">
+                            <a class="sele">删除</a><a class="cartli7a2">移入我的收藏</a></li>
+                    </ul>
+                {% endfor %}
 
+                <div class="cartdiv">
+                    <div class="cartdiv1">
+                        活动优惠：¥0.00
+                    </div>
+                    <div class="cartdiv2">
+                        商品应付总计：￥{{ carts_total }}
+                    </div>
+                    <div class="cartdiv3">
+                        预估税费：￥0.00
+                    </div>
+                </div>
+            </div>
 
-
-
+        </div>
+        <div class="cartjs">
+            <div class="cartjs1"><input type="checkbox"><span class="cartjs1span1">全选</span><span class="cartjs1span2">删除选中商品</span>
+            </div>
+            <a href="#" class="jiesuan">去结算</a>
+            <div class="cartjsdiv">
+                <p>已选商品<b class="B"></b>件
+                    <span class="zongjia">总价(不含运费)</span><span class="money"></span>
+                </p>
+                <p class="youhui"><span>活动优惠：-￥0.00</span><span
+                        class="yingfu">商品应付总计：￥</span><span class="shuifei">商品税费：￥185.17</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Boxes">
+    <div class="Boxes_div">
+        <p>购物车里空空如也，赶紧去<a href="javascript:"> 逛逛吧&gt;</a></p>
+        <p>或者您可以先进行<a href="javascript:"> 登录&gt;</a></p>
+    </div>
+</div>
 
 
 <!--全面覆盖-->
-    <div class="all">
-    	
+<div class="all">
+
+</div>
+<div class="core">
+    <p class="p1">&nbsp;&nbsp;提示</p>
+    <div class="all_contant">
+        <p><span></span>确认要删除该商品吗？</p>
+        <div class="all_end">
+            <a class="sure">确认</a>
+            <a class="none">取消</a>
+        </div>
     </div>
-    <div class="core">
-    		<p class="p1">&nbsp;&nbsp;提示</p>
-    		<div class="all_contant">
-    			<p><span></span>确认要删除该商品吗？</p>
-    			<div class="all_end">
-    				<a class="sure">确认</a>
-    				<a class="none">取消</a>
-    			</div>
-    		</div>
-    	</div>
-	</body>
+</div>
+</body>
 </html>

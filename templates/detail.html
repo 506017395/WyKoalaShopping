@@ -10,6 +10,7 @@
     <script type="text/javascript" src="{% static "js/detail.js" %}"></script>
     <script type="text/javascript" src="{% static "lib/jquery.raty.js" %}"></script>
     <script type="text/javascript" src="{% static "js/jquery.fly.min.js" %}"></script>
+    <script src="{% static "js/detail1.js" %}"></script>
     <script type="text/javascript">
         $.fn.raty.defaults.path = '{% static "lib/images" %}';
         $(function () {
@@ -421,13 +422,14 @@ border-width: 4px 4px 0;"></i></div>-->
             <div class="buy">
                 <div class="num">
                     <span class="num_span">数量</span>
-                    <span class="jia"><a href="#">-</a></span><input type="text" value="1" class="sum"><span
-                        class="jian"><a href="#">+</a></span>
-                    <span class="num_span1">限购5件</span>
+                    <span class="jian" id="jian"><a>-</a></span><input type="text" value="1" class="sum"
+                                                                      id="goodsSum"><span
+                        class="jia" id="jia"><a>+</a></span>
+                    <span class="num_span1"><!--限购5件--></span>
                 </div>
                 <div class="cost">
-                    <span class="cost_span1"><a href="#">立刻购买</a></span>
-                    <span class="cost_span2"><a href="javascript:">加入购物车</a></span>
+                    <span class="cost_span1"><a>立刻购买</a></span>
+                    <span class="cost_span2" id="btnaddcart" goodsid="{{ goods.id }}"><a>加入购物车</a></span>
                     <div class="cue">
                         <span class="cue_span">提示:</span>
                         <span class="cue_span1">本商品不支持7天无理由退货</span>

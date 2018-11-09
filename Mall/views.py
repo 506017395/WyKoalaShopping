@@ -5,7 +5,7 @@ import random
 import json
 import uuid
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from PIL import Image, ImageDraw, ImageFont
 
@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 # 网易考拉首页
-from Mall.models import Slideshow, Goods, User
+from Mall.models import Slideshow, Goods, User, Cart
 
 
 def index(request):
@@ -43,11 +43,7 @@ def login(request):
         # 获取post提交的数据
         uname = data_post.get("username")
         upwd = generate_password(data_post.get("pwd"))
-
-        user_aa = User.objects.first().uaccount
-        user_a = User.objects.first().upwd
-        isTrue = upwd == user_a
-        isT = user_aa == uname
+        print(upwd)
         user_set = User.objects.filter(uaccount=uname, upwd=upwd)
         if user_set.exists():
             user = user_set.first()
@@ -140,10 +136,63 @@ def goodsdetail(request):
 
 # 商品详细2
 def detail(request, goods_id, ):
+    token = request.COOKIES.get("token")  # 获取token
+    result = {}
+    if token:  # 判断是否找到用户
+        user = User.objects.get(token=token)  # 根据token查找用户
+        result["username"] = user.uname
     goods = Goods.objects.get(pk=goods_id)
-    return render(request, "detail.html", context={"goods": goods})
+    result["goods"] = goods
+    return render(request, "detail.html", result)
 
 
 # 购物车
 def cart(request):
-    return render(request, "cart.html")
+    token = request.COOKIES.get("token")  # 获取token
+    result = {}
+    if token:  # 判断是否找到用户
+        user = User.objects.get(token=token)  # 根据token查找用户
+        result["username"] = user.uname
+        carts = Cart.objects.filter(user=user)
+        result["carts"] = carts
+        cart_total = 0
+        for cart in carts:
+            cart_total += cart.total
+        result["carts_total"] = cart_total
+        return render(request, "cart.html", context=result)
+    return render(request, "login.html")
+
+
+# 添加到购物车
+def addcart(request):
+    token = request.COOKIES.get("token")  # 获取token
+    result = {}
+    if token:  # 判断是否找到用户
+        user = User.objects.get(token=token)  # 根据token查找用户
+        result["username"] = user.uname
+
+        goods = Goods.objects.get(pk=request.POST.get("goodsid"))
+        goods_sum = int(request.POST.get("goodsSum"))
+        total = goods.price * goods_sum
+        cart_old = Cart.objects.filter(user=user, goods=goods)
+        if cart_old:
+            cart = cart_old.first()
+            cart.number += goods_sum
+            cart.total += total
+        else:
+            cart = Cart.createCart(user=user, goods=goods, number=goods_sum, total=total)
+        cart.save()
+        result["status"] = 1
+        result["msg"] = "添加到购物车成功"
+        result["goods_sum"] = goods_sum
+        return JsonResponse(result)
+    return render(request, "login.html")
+
+
+# 统计购物车数量
+def countcart(request):
+    cart = Cart.objects.filter(user=User.objects.filter(token=request.COOKIES.get("token")))
+    result = {
+        "cartsum": len(cart)
+    }
+    return JsonResponse(result)
