@@ -1,7 +1,7 @@
 import hashlib
 import os
 import random
-import json
+import time
 import uuid
 
 from django.http import HttpResponse, JsonResponse
@@ -63,6 +63,11 @@ def logout(request):
 # 注册
 def resign(request):
     if request.method == "GET":
+        account = request.GET.get("account")
+        if account:
+            user = User.objects.filter(uaccount=account)
+            if user:
+                return JsonResponse({"status": 1, "msg": "该用户名已被使用"})
         return render(request, "resign.html")
     elif request.method == "POST":
         data_post = request.POST
@@ -73,12 +78,27 @@ def resign(request):
                                     generate_password(data_post.get("password")),
                                     data_post.get("tel"),
                                     token)
+
+        result = {}
         try:
             user_info.save()
-            request.session["token"] = user_info.token
-            return redirect("K:index")
+            request.session["token"] = token
+            result["status"] = 1
+            result["msg"] = "注册成功!"
         except Exception as e:
-            return render(request, "resign.html")
+            result["status"] = -1
+            result["msg"] = e
+        return JsonResponse(result);
+
+
+# 手机号验证
+def telyz(request):
+    tel = request.GET.get("tel")
+    if tel:
+        user = User.objects.filter(utel=tel)
+        if user:
+            return JsonResponse({"status": 1, "msg": "该手机号已被使用"})
+    return JsonResponse({"status": 2, "msg": "可以使用"})
 
 
 # 密码加密
@@ -120,12 +140,13 @@ def codeimage(request):
     if len(list_file) > 5:
         for file in list_file:
             os.remove(os.path.join("static/img/code/" + file))
-    imgdir = "static/img/code/" + str(random.randrange(10000)) + ".png"
+    imgdir = "static/img/code/" + str(time.time()) + str(random.randrange(10000)) + ".png"
     image.save(imgdir, "png")
-    json_code = json.dumps("../" + imgdir)
-    response = HttpResponse(json_code)
-    response.set_cookie("code", ran_code)
-    return response
+    result = {
+        "codeimg": imgdir,
+        "codedata": ran_code,
+    }
+    return JsonResponse(result)
 
 
 # 商品详细
@@ -275,3 +296,5 @@ def delcart(request):
         "all_select": all_select,
     }
     return JsonResponse(result)
+
+

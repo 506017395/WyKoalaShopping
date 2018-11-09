@@ -76,14 +76,14 @@ a {
 #conter .div1 .text1, #conter .div2 .pwd, #conter .div3 .nextpwd, #conter .div4 .phone, #conter .div6 .txt {
     position: absolute;
     height: 30px;
-    width: 120px;
+    width: 130px;
     background: url(../img/close.png) no-repeat;
     background-size: contain;
     left: 680px;
     top: -10px;
     color: red;
-    font-size: 14px;
-    text-align: center;
+    font-size: 12px;
+    /*text-align: center;*/
     line-height: 30px;
     padding-left: 30px;
     display: none;
@@ -193,4 +193,8 @@ a {
     font-size: 12px;
     color: #999999;
     padding-top: 10px;
+}
+
+#codedata {
+    display: none;
 }

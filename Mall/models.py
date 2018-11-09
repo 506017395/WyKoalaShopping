@@ -4,10 +4,10 @@ from django.db import models
 # Create your models here.
 # 用户表
 class User(models.Model):
-    uaccount = models.CharField(max_length=60)  # 用户账号
+    uaccount = models.CharField(max_length=60, unique=True)  # 用户账号
     uname = models.CharField(max_length=60)  # 用户昵称
     upwd = models.CharField(max_length=256)  # 用户密码
-    utel = models.CharField(max_length=20)  # 电话号码
+    utel = models.CharField(max_length=20, unique=True)  # 电话号码
     token = models.CharField(max_length=256, null=True)  # token 会话保持
 
     @classmethod

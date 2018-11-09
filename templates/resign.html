@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="{% static 'css/resign.css' %}">
-    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.0.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
     <script type="text/javascript">
         $(function () {
@@ -83,11 +83,61 @@
                     }
                     textmove()
                     isTrue = false
-                } else {//否则正确
-                    $(".text1").hide();
-                    $(".text2").html("输入正确")
-                    $(".text2").show();
-                    isTrue = true;
+                } else {
+                    $.get("/resign/", {account: $("#text").val() + $("#account_email").val()}, function (data) {
+                        if (data.status == "1") {
+                            $(".text2").hide();
+                            $(".text1").html(data.msg)
+                            $(".text1").show();
+                            $(".text1").animate({left: 640}, 200)
+                            $(".text1").animate({left: 720}, 200)
+                            $(".text1").animate({left: 640}, 200)
+                            $(".text1").animate({left: 740}, 200)
+                            $(".text1").animate({left: 680}, 200)
+                            isTrue = false
+                        } else {
+                            //否则正确
+                            $(".text1").hide();
+                            $(".text2").html("输入正确")
+                            $(".text2").show();
+                            isTrue = true;
+                        }
+                    });
+                }
+            })
+
+            var isTrue1 = false;
+            $("#account_email").click(function () {
+                var reg = /^[a-zA-Z0-9]{6,18}$/;
+                var text1 = $("#text").val();
+                if (!reg.test(text1)) {//判断自身是否输入值   与正则匹配  不相同则错误
+                    if (text1 == "") {//如果点击了没有输入  不匹配  特例
+                        $(".text1").hide();
+                        $(".text2").hide();
+                        return false;
+                    }
+                    textmove()
+                    isTrue = false
+                } else {
+                    $.get("/resign/", {account: $("#text").val() + $("#account_email").val()}, function (data) {
+                        if (data.status == "1") {
+                            $(".text2").hide();
+                            $(".text1").html(data.msg)
+                            $(".text1").show();
+                            $(".text1").animate({left: 640}, 200)
+                            $(".text1").animate({left: 720}, 200)
+                            $(".text1").animate({left: 640}, 200)
+                            $(".text1").animate({left: 740}, 200)
+                            $(".text1").animate({left: 680}, 200)
+                            isTrue = false
+                        } else {
+                            //否则正确
+                            $(".text1").hide();
+                            $(".text2").html("输入正确")
+                            $(".text2").show();
+                            isTrue = true;
+                        }
+                    });
                 }
             })
 
@@ -118,12 +168,12 @@
                     $("#pwd").val("");
                     $(".pwd").hide();
                     $(".pwd2").hide();
-                    if ($("#text").val() == "") {//特例  如果上一层 没有输入  则不提示
+                    /*if ($("#text").val() == "") {//特例  如果上一层 没有输入  则不提示
                         $(".text1").hide();
                         $(".text2").hide();
                         return false;
                     }
-                    textmove()
+                    textmove()*/
                 }
             })
 
@@ -152,12 +202,12 @@
                     $("#nextpwd").val("");
                     $(".nextpwd").hide();
                     $(".nextpwd2").hide();
-                    if ($("#pwd").val() == "") {
+                    /*if ($("#pwd").val() == "") {
                         $(".pwd").hide();
                         $(".pwd2").hide();
                         return false;
                     }
-                    pwdmove();
+                    pwdmove();*/
                 }
             });
 
@@ -176,21 +226,35 @@
                         phonemove()
                         isphone = false;
                     } else {
-                        $(".phone").hide();
-                        $(".phone2").html("输入正确");
-                        $(".phone2").show();
-                        isphone = true;
+                        $.get("/telyz/", {tel: $("#phone").val()}, function (data) {
+                            if (data.status == "1") {
+                                $(".phone2").hide();
+                                $(".phone").show();
+                                $(".phone").html(data.msg)
+                                $(".phone").animate({left: 640}, 200)
+                                $(".phone").animate({left: 720}, 200)
+                                $(".phone").animate({left: 640}, 200)
+                                $(".phone").animate({left: 740}, 200)
+                                $(".phone").animate({left: 680}, 200)
+                                isphone = false;
+                            } else {
+                                $(".phone").hide();
+                                $(".phone2").html("输入正确");
+                                $(".phone2").show();
+                                isphone = true;
+                            }
+                        });
                     }
                 } else {
                     $("#phone").val("");
                     $(".phone").hide();
                     $(".phone2").hide();
-                    if ($("#nextpwd").val() == "") {
+                    /*if ($("#nextpwd").val() == "") {
                         $(".nextpwd").hide();
                         $(".nextpwd2").hide();
                         return false;
                     }
-                    nextpwdmove()
+                    nextpwdmove()*/
                 }
             });
             // /^1[3|4|5|8] \d{9}$/.test(sPhone)
@@ -200,7 +264,7 @@
             $("#txt").blur(function () {
                 if (isphone) {
                     var txt = $("#txt").val().toLowerCase();
-                    var put1 = $.cookie("code").toLowerCase();
+                    var put1 = $("#codedata").attr("codedata").toLowerCase();
                     if (txt != put1 || txt == "") {
                         if (txt == "") {
                             $(".txt").hide();
@@ -219,12 +283,12 @@
                     $("#txt").val("");
                     $(".txt").hide();
                     $(".txt2").hide();
-                    if ($("#phone").val() == "") {
+                    /*if ($("#phone").val() == "") {
                         $(".phone").hide();
                         $(".phone2").hide();
                         return false;
                     }
-                    phonemove()
+                    phonemove()*/
                 }
 
             });
@@ -234,26 +298,39 @@
                 //点击注册按钮时   要判断以上输入框  是否输入正确  和  输入完成
                 if (isTrue == true && ispwd == true && isnextpwd == true && isphone == true && istxt == true) {
                     //注册
-                    $("#form_btn").submit();
-                    {#$.ajax({#}
-                    {#    type: "post",#}
-                    {#    url: "/resign/",#}
-                    {#    data: {#}
-                    {#        csrfmiddlewaretoken: "{{ csrf_token }}",#}
-                    {#        account: $("input[name='account']").val(),#}
-                    {#        password: $("input[name='password']").val(),#}
-                    {#        tel: $("input[name='tel']").val()#}
-                    {#    },#}
-                    {#    success: function (data) {#}
-                    {#        if (data != "0") {#}
-                    {#            alert(typeof(data))#}
-                    {#        }else{#}
-                    {#            alert("注册失败,请重新注册!")#}
-                    {#        }#}
-                    {#    }});#}
+                    // $("#form_btn").submit();
+                    $.ajax({
+                        type: "post",
+                        url: "/resign/",
+                        headers: {"X-CSRFToken": $.cookie('csrftoken')},
+                        data: {
+                            account: $("input[name='account']").val(),
+                            password: $("input[name='password']").val(),
+                            selectEmail: $("#account_email").val(),
+                            tel: $("input[name='tel']").val()
+                        },
+                        success: function (data) {
+                            if (data.status == "1") {
+                                location.href = "{% url "K:index" %}"
+                            } else {
+                                alert("注册失败,请重试!")
+                            }
+                        }
+                    });
                 } else {
-                    if (isTrue == false) {
-                        textmove()
+                    if (isTrue == false || isTrue1 == false) {
+                        if ($(".text1").html() == "帐号须由6-18个字符组成") {
+                            textmove()
+                        } else {
+                            $(".text2").hide();
+                            $(".text1").html("该用户名已被使用")
+                            $(".text1").show();
+                            $(".text1").animate({left: 640}, 200)
+                            $(".text1").animate({left: 720}, 200)
+                            $(".text1").animate({left: 640}, 200)
+                            $(".text1").animate({left: 740}, 200)
+                            $(".text1").animate({left: 680}, 200)
+                        }
                     }
                     if (ispwd == false) {
                         pwdmove();
@@ -262,7 +339,18 @@
                         nextpwdmove()
                     }
                     if (isphone == false) {
-                        phonemove()
+                        if ($(".phone").html() == "输入手机号不正确") {
+                            phonemove()
+                        } else {
+                            $(".phone2").hide();
+                            $(".phone").show();
+                            $(".phone").html("该手机号已被使用")
+                            $(".phone").animate({left: 640}, 200)
+                            $(".phone").animate({left: 720}, 200)
+                            $(".phone").animate({left: 640}, 200)
+                            $(".phone").animate({left: 740}, 200)
+                            $(".phone").animate({left: 680}, 200)
+                        }
                     }
                     if (istxt == false) {
                         txtmove()
@@ -272,13 +360,10 @@
 
             // 刷新验证码
             function code() {
-                $.ajax({
-                    type: "get",
-                    url: "/codeimage/",
-                    dataType: "json",
-                    success: function (data) {
-                        $("#put1").attr("src", data);
-                    }
+                $.get("/codeimage/", function (data) {
+                    console.log(data.codeimg)
+                    $("#put1").attr("src", "/" + data.codeimg);
+                    $("#codedata").attr("codedata", data.codedata)
                 });
             }
 
@@ -362,7 +447,7 @@
         <span>About&nbsp;NetEase&nbsp;-&nbsp;公司简介&nbsp;-&nbsp;联系方式&nbsp;-&nbsp;OAuth2.0认证&nbsp;-&nbsp;招聘信息&nbsp;-&nbsp;客户服务&nbsp;-&nbsp;相关法律&nbsp;-&nbsp;网络营销</span>
         <p>网易公司版权所有&nbsp;*1997-2016</p>
     </div>
-
+    <p id="codedata" codedata=""></p>
 </div>
 </body>
 </html>
