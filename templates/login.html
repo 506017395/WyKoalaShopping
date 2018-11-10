@@ -37,43 +37,26 @@
                         $("#prompt").hide();
                     })
                 } else {
-                    $("#form_btn").submit();
-                    {#var users = $.cookie("users");//表示不有没有  都赋值给  user#}
-                    {#if (users) {#}
-                    {#    users = JSON.parse(users);//cookie中所有注册过的用户#}
-                    {#    var isTrue = false;//表示是否存在该用户#}
-                    {#    for (var i = 0; i < users.length; i++) {#}
-                    {#        if (users[i].name == $("#username").val() && users[i].pwd == $("#pwd").val()) {#}
-                    {#            console.log("登入成功");#}
-                    {#            var timer = setTimeout(function () {#}
-                    {#                location.href = "index.html"#}
-                    {#            }, 3000);#}
-                    {#            isTrue = true;#}
-                    {#        }#}
-                    {#    }#}
-                    {#    if (!isTrue) {#}
-                    {#        console.log("用户名或密码错误，请重新输入")#}
-                    {#        $(".div").animate({height: 35}, 100)#}
-                    {#        $(".right_top").animate({height: 112}, 100)#}
-                    {#        $(".center").animate({height: 374}, 100)#}
-                    {##}
-                    {#        $("#prompt").show();#}
-                    {#        $("#prompt").html("用户名或密码错误")#}
-                    {#        $("#pwd").focus(function () {#}
-                    {#            $(".div").animate({height: 10}, 100)#}
-                    {#            $(".right_top").animate({height: 93}, 100)#}
-                    {#            $(".center").animate({height: 360}, 100)#}
-                    {#            $("#prompt").hide();#}
-                    {#        })#}
-                    {#        $("#username").focus(function () {#}
-                    {#            $(".div").animate({height: 10}, 100)#}
-                    {#            $(".right_top").animate({height: 93}, 100)#}
-                    {#            $(".center").animate({height: 360}, 100)#}
-                    {#            $("#prompt").hide();#}
-                    {#        })#}
-                    {#    }}#}
-                    {#else {#}
-                    {#    console.log("不存在该用户，请先注册");}#}
+                    $.ajax({
+                        type: "post",
+                        url: "/login/",
+                        headers: {"X-CSRFToken": $.cookie("csrftoken")},
+                        data: {
+                            username: $("#username").val(),
+                            pwd: $("#pwd").val()
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.status == "0") {
+                                {#prompt#}
+                                $("#prompt").html(data.msg).show()
+                            } else if (data.status == "-1") {
+                                $("#prompt").html(data.msg).show()
+                            } else {
+                                location.href = "{% url "K:index" %}"
+                            }
+                        }
+                    });
                 }
             })
         })
@@ -109,7 +92,7 @@
 
         #container .center {
             position: absolute;
-            height: 362px;
+            height: 370px;
             width: 500px;
             border: 1px solid whitesmoke;
             left: 49%;
@@ -202,7 +185,7 @@
             height: 15px;
             width: 240px;
             padding: 0px;
-            top: 60%;
+            top: 76%;
             margin: 0px;
             text-align: left;
             color: red;
@@ -235,6 +218,7 @@
 
         #btn {
             margin-left: 44px;
+            margin-top: 10px;
             width: 264px;
             height: 40px;
             background: red;
@@ -302,7 +286,7 @@
         }
 
         #container .right .right_bottom {
-            height: 156px;
+            height: 165px;
             width: 147px;
             border-left: 1px solid #ccc;
         }
@@ -357,30 +341,27 @@
 </div>
 <div id="container">
     <div class="center">
-        <form action="{% url "K:login" %}" method="post" id="form_btn">
-            {% csrf_token %}
-            <div class="left">
-                <h3>登入网易邮箱帐号</h3>
-                <input type="text" placeholder="网易邮箱帐号" id="username" name="username">
-                <input type="password" placeholder="密码" id="pwd" name="pwd">
-                <span class="user_img"><img src="{% static 'img/user.png' %}"></span>
-                <span class="pwd_img"><img src="{% static 'img/pwd.png' %}"></span>
-                <div class="div">
-                    <p id="prompt"></p>
-                    <input type="checkbox" id="checkbox"><span class="checkbox_left">十天内免登入</span>
-                    <span class="checkbox_right">忘记密码?</span>
-                </div>
-                <button id="btn">登入</button>
-                <p>没有网易邮箱？<a href="{% url "K:resign" %}">立即免费注册&gt;&gt;</a></p>
-                <div class="last">
-                    <span class="first">使用第三方帐号登入：</span>
-                    <span><img src="{% static 'img/微信.png' %}" class="pic"></span>
-                    <span><img src="{% static 'img/iconfon-zhifubao.png' %}" class="pic"></span>
-                    <span><img src="{% static 'img/微博.png' %}" class="pic"></span>
-                    <span><img src="{% static 'img/qq.png' %}"></span>
-                </div>
+        <div class="left">
+            <h3>登入网易邮箱帐号</h3>
+            <input type="text" placeholder="网易邮箱帐号" id="username" name="username">
+            <input type="password" placeholder="密码" id="pwd" name="pwd">
+            <span class="user_img"><img src="{% static 'img/user.png' %}"></span>
+            <span class="pwd_img"><img src="{% static 'img/pwd.png' %}"></span>
+            <div class="div">
+                <p id="prompt"></p>
+                <input type="checkbox" id="checkbox"><span class="checkbox_left">十天内免登入</span>
+                <span class="checkbox_right">忘记密码?</span>
             </div>
-        </form>
+            <button id="btn">登入</button>
+            <p>没有网易邮箱？<a href="{% url "K:resign" %}">立即免费注册&gt;&gt;</a></p>
+            <div class="last">
+                <span class="first">使用第三方帐号登入：</span>
+                <span><img src="{% static 'img/微信.png' %}" class="pic"></span>
+                <span><img src="{% static 'img/iconfon-zhifubao.png' %}" class="pic"></span>
+                <span><img src="{% static 'img/微博.png' %}" class="pic"></span>
+                <span><img src="{% static 'img/qq.png' %}"></span>
+            </div>
+        </div>
         <div class="right">
             <div class="right_top"></div>
             <div class="middle"><img src="{% static 'img/ma.png' %}"></div>
@@ -388,7 +369,6 @@
                 <p class="p1">领取1000元新人礼包</p>
                 <p class="p2">APP下单更有优惠价</p>
             </div>
-
         </div>
     </div>
 </div>

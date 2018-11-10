@@ -3,6 +3,7 @@ import os
 import random
 import time
 import uuid
+import json
 
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
@@ -26,7 +27,7 @@ def index(request):
     }
 
     token = request.session.get("token")  # 获取token
-
+    print(token)
     if token:  # 判断是否找到用户
         user = User.objects.get(token=token)  # 根据token查找用户
         result["username"] = user.uname
@@ -42,16 +43,27 @@ def login(request):
         # 获取post提交的数据
         uname = data_post.get("username")
         upwd = generate_password(data_post.get("pwd"))
-        print(upwd)
-        user_set = User.objects.filter(uaccount=uname, upwd=upwd)
-        if user_set.exists():
-            user = user_set.first()
-            # token = uuid.uuid5(uuid.uuid4(), 'test')
-            # user.token = token
-            # user.save()
-            request.session["token"] = user.token
-            return redirect("K:index")
-        return render(request, "login.html")
+        user = User.objects.filter(uaccount=uname)
+
+        result = {}
+        if user.exists():
+            user_p = user.filter(upwd=upwd)
+            if user_p.exists():
+                user_ok = user_p.first()
+                token = str(uuid.uuid5(uuid.uuid4(), "login"))
+                user_ok.token = token
+                # print(token, type(token))
+                # print(user.token, type(user.token))
+                user_ok.save()
+                print(user_ok.token)
+                request.session["token"] = user_ok.token
+            else:
+                result["status"] = -1
+                result["msg"] = "密码错误,请重新输入"
+        else:
+            result["status"] = 0
+            result["msg"] = "用户名不存在,请重新输入"
+        return JsonResponse(result)
 
 
 # 注销
@@ -72,17 +84,17 @@ def resign(request):
     elif request.method == "POST":
         data_post = request.POST
         # 使用uuid生成token
-        token = uuid.uuid5(uuid.uuid4(), 'test')
+        token = str(uuid.uuid5(uuid.uuid4(), 'register'))
         # a, b, c = data_post.get("account"), data_post.get("password"), data_post.get("tel")
         user_info = User.createUser(data_post.get("account") + data_post.get("selectEmail"),
                                     generate_password(data_post.get("password")),
                                     data_post.get("tel"),
-                                    token)
+                                    str(token))
 
         result = {}
         try:
             user_info.save()
-            request.session["token"] = token
+            request.session["token"] = user_info.token
             result["status"] = 1
             result["msg"] = "注册成功!"
         except Exception as e:
@@ -277,10 +289,13 @@ def allselect(request):
 
 # 删除选中的购物车商品
 def delcart(request):
-    cart_id = request.GET.get("cartid")
+    if request.method == "GET":
+        cart_id = request.GET.get("cartid")
+    elif request.method == "POST":
+        cart_id = request.POST.get("cartid")
     cart_id_list = cart_id.split(",")
+    if len(cart_id_list) > 1: cart_id_list.pop()
     for cartid in cart_id_list:
-        pass
         Cart.objects.get(pk=int(cartid)).delete()
     carts = Cart.objects.filter(user=User.objects.get(token=request.session.get("token")))
 
@@ -296,5 +311,3 @@ def delcart(request):
         "all_select": all_select,
     }
     return JsonResponse(result)
-
-

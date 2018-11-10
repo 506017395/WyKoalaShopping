@@ -99,9 +99,12 @@
                 {% for cart in carts %}
                     <ul class="cartul">
                         {% if cart.is_select == True %}
-                            <li class="cartli1"><input type="checkbox" checked="checked" value="{{ cart.goods_id }}"></li>
+                            <li class="cartli1"><input type="checkbox" checked="checked" value="{{ cart.goods_id }}">
+                                <input type="text" value="{{ cart.id }}" style="display: none;"></li>
                         {% else %}
-                            <li class="cartli1"><input type="checkbox" value="{{ cart.goods_id }}"></li>
+                            <li class="cartli1"><input type="checkbox" value="{{ cart.goods_id }}">
+                                <input type="text" value="{{ cart.id }}" style="display: none;">
+                            </li>
                         {% endif %}
                         <li class="cartli2"><img id="0" src="{% static cart.goods.img %}">
                         </li>

@@ -51,7 +51,7 @@ class Cart(models.Model):
     goods = models.ForeignKey(Goods)
     number = models.IntegerField()
     total = models.DecimalField(max_digits=10, decimal_places=2, null=True)
-    is_select = models.BooleanField(default=False)
+    is_select = models.BooleanField(default=True)
 
     @classmethod
     def createCart(cls, user, goods, number, total):

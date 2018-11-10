@@ -70,4 +70,30 @@ $(function () {
             $(".cartdiv2 span,.yingfu span").html(data.count_total);
         });
     });
+    // 删除选中的购物车
+    $(".cartjs1span2").click(function () {
+        console.log($(".cartul :checked"))
+        var $chec = $(".cartul :checked").next()
+        var cart_str = ""
+        $chec.each(function () {
+            // console.log(this.value)
+            cart_str += (this.value + ",")
+        })
+        // console.log(cart_str)
+        $.ajax({
+            url: "/delcart/",
+            type: "post",
+            data: {cartid: cart_str},
+            dataType: "json",
+            headers: {"X-CSRFToken": $.cookie("csrftoken")},
+            // traditional:true,
+            success: function (data) {
+                $chec.each(function () {
+                    $chec.parents(".cartul").remove()
+                })
+                $(".f1 .div1 input,.cartjs1 input").prop("checked", data.all_select);
+                $(".cartdiv2 span,.yingfu span").html(data.count_total);
+            }
+        });
+    });
 });
