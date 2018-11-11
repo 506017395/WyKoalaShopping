@@ -19,4 +19,7 @@ urlpatterns = [
     url(r"^delcart/$", views.delcart, name="delcart"),  # 删除选中的购物车商品
     url(r"^underorder/$", views.underorder, name="underorder"),  # 下单
     url(r"^orderinfo/(\d+)/$", views.orderinfo, name="orderinfo"),  # 订单详情
+    url(r"^pay/$", views.pay, name="pay"),  # 付款
+    url(r'^notice/$', views.notice, name="notice"),  # 支付完成后的通知
+    url(r'^jump/$', views.jump, name="jump"),  # 支付完成后的跳转
 ]

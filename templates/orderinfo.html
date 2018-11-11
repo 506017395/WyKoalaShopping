@@ -8,6 +8,7 @@
     <script type="text/javascript" src="{% static 'js/jquery-1.12.0.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
     <script src="{% static "js/orderinfo.js" %}"></script>
+    <script src="{% static "js/orderinfo1.js" %}"></script>
 </head>
 <body style="position: relative;">
 <div id="header">
@@ -147,7 +148,7 @@
             <div class="cartjs1">
                 {#                <input type="checkbox"><span class="cartjs1span1">全选</span><span class="cartjs1span2">删除选中商品</span>#}
             </div>
-            <a href="#" class="jiesuan">付&nbsp;&nbsp;&nbsp;&nbsp;款</a>
+            <a class="jiesuan" orderno="{{ orderno }}" >付&nbsp;&nbsp;&nbsp;&nbsp;款</a>
             <div class="cartjsdiv">
                 <p>共有商品<b class="B">{{ goods_count }}</b>件
                     <span class="zongjia">总价(不含运费)</span><span class="money">{{ total_price }}</span>

@@ -3,8 +3,8 @@ import os
 import random
 import time
 import uuid
-import json
 
+from Mall.Alipay import alipay_koala
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from PIL import Image, ImageDraw, ImageFont
@@ -355,7 +355,6 @@ def orderinfo(request, order_no):
     order = Order.objects.get(orderno=order_no)
     order_goods_list = order.ordergoods_set.all()
 
-
     goods_count = len(order_goods_list)
     total_price = 0
     for order_goods in order_goods_list:
@@ -366,6 +365,41 @@ def orderinfo(request, order_no):
         "username": user.uname,
         "goods_count": goods_count,
         "total_price": total_price,
-
+        "orderno": order.orderno,
     }
     return render(request, "orderinfo.html", result)
+
+
+def notice(request):
+    print("订单支付成功")
+    print(request.GET.get("subject"))
+    return JsonResponse({"msg": "支付成功"})
+
+
+def jump(request):
+    print("订单支付成功,进行页面跳转")
+    return redirect("K:index")
+
+
+# 付款
+def pay(request):
+    order_no = request.GET.get("orderno")
+    user = User.objects.get(token=request.session.get("token"))
+    order = Order.objects.get(orderno=order_no)
+    total = 0
+    order_goods_set = order.ordergoods_set.all()
+    for order_goods in order_goods_set:
+        total += order_goods.goods.price * order_goods.number
+
+    # 支付url
+    url = alipay_koala.direct_pay(
+        subject="{}-{}-{}".format(order.createtime, user.uname, order_no),  # 订单名称
+        out_trade_no=order_no,  # 订单号
+        total_amount=total,  # 付款金额
+        return_url="http://182.254.228.82/jump/"
+    )
+
+    # 拼接支付网关
+    alipay_url = "https://openapi.alipaydev.com/gateway.do?{data}".format(data=url)
+
+    return JsonResponse({'alipay_url': alipay_url})
