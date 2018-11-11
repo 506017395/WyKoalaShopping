@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44e5d555-2f49-4bf6-b423-b657fe8717a6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KoalaShopping/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/KoalaShopping/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mall/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mall/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mall/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mall/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/code/1541923558.67747977115.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/code/1541925359.06684859209.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/orderinfo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/orderinfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/orderinfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/index1.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/index1.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,13 +34,14 @@
     <session id="-1065901175">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.11" value="5" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -70,10 +63,10 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="12" />
-          <entry key="html" value="16" />
+          <entry key="html" value="17" />
           <entry key="ini" value="3" />
-          <entry key="js" value="20" />
-          <entry key="json" value="1" />
+          <entry key="js" value="22" />
+          <entry key="json" value="2" />
           <entry key="png" value="2" />
           <entry key="py" value="39" />
           <entry key="txt" value="1" />
@@ -82,11 +75,11 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="12" />
-          <entry key="HTML" value="16" />
+          <entry key="HTML" value="17" />
           <entry key="Image" value="2" />
           <entry key="Ini" value="3" />
-          <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="20" />
+          <entry key="JSON" value="2" />
+          <entry key="JavaScript" value="22" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Python" value="39" />
         </counts>
@@ -94,7 +87,17 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/js/index1.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2023">
+              <caret line="172" column="42" lean-forward="true" selection-start-line="172" selection-start-column="42" selection-end-line="172" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -124,6 +127,7 @@
       <find>div1</find>
       <find>.cartli5</find>
       <find>jiesuan</find>
+      <find>deta1</find>
     </findStrings>
     <replaceStrings>
       <replace>/static/img/</replace>
@@ -157,6 +161,7 @@
         <option value="$PROJECT_DIR$/templates/cart.html" />
         <option value="$PROJECT_DIR$/Mall/views.py" />
         <option value="$PROJECT_DIR$/KoalaShopping/settings.py" />
+        <option value="$PROJECT_DIR$/static/js/index1.js" />
       </list>
     </option>
   </component>
@@ -183,11 +188,6 @@
             <path>
               <item name="WyKoalaShopping" type="b2602c69:ProjectViewProjectNode" />
               <item name="WyKoalaShopping" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WyKoalaShopping" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WyKoalaShopping" type="462c0819:PsiDirectoryNode" />
-              <item name="KoalaShopping" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -296,7 +296,7 @@
   <component name="ToolWindowManager">
     <frame x="52" y="27" width="1314" height="741" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18632075" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18867925" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -338,13 +338,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/json/index7.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/cart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-941">
@@ -489,9 +482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="126" column="13" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -561,6 +551,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/json/index7.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="403" column="28" selection-start-line="403" selection-start-column="23" selection-end-line="403" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/index1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2023">
+          <caret line="172" column="42" lean-forward="true" selection-start-line="172" selection-start-column="42" selection-end-line="172" selection-end-column="42" />
         </state>
       </provider>
     </entry>

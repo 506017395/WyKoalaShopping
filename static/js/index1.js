@@ -171,7 +171,7 @@ $(function () {
             var obj = data[i];
             var li = $("<li></li>");
             li.css("position", "relative")
-            var dot = $("<img src=" + obj.smallimg + "/>");
+            var dot = $("<img src=" + obj.smallimg + ">");
 
             dot.css("position", "absolute");
             dot.css({height: "30px", width: "30px", left: "10px", top: "10px"});
@@ -190,7 +190,7 @@ $(function () {
                     "color": "#fff"
                 });
             }
-            var img = $("<img src=" + obj.img + "/>")
+            var img = $("<img src=" + obj.img + ">")
             img.css({"height": "197px", "width": "197px"});
             img.css("display", "block")
             img.css("padding-top", "20px")
