@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 # 网易考拉首页
-from Mall.models import Slideshow, Goods, User, Cart
+from Mall.models import Slideshow, Goods, User, Cart, Order, OrderGoods
 
 
 def index(request):
@@ -187,15 +187,19 @@ def cart(request):
         result["username"] = user.uname
         carts = Cart.objects.filter(user=user)
         result["carts"] = carts
+
+        cart_count = 0
         cart_total = 0
         all_select = True if len(carts) else False
         for cart in carts:
             if not cart.is_select:
                 all_select = False
                 continue
+            cart_count += 1
             cart_total += cart.total
         result["carts_total"] = cart_total
         result["all_select"] = all_select
+        result["cart_count"] = cart_count
         return render(request, "cart.html", context=result)
     return render(request, "login.html")
 
@@ -246,6 +250,7 @@ def goodsnum(request):
     cart.number = goods_num
     cart.total = total
     cart.save()
+
     count_total = 0
     for old_cart in old_cart:
         if not old_cart.is_select: continue
@@ -260,6 +265,7 @@ def allselect(request):
     sele_status = True if request.GET.get("selestatus") == "true" else False
 
     result = {}
+    cart_count = 0
     count_total = 0
     if is_all_select == "all":
         carts = Cart.objects.filter(user=user)
@@ -267,8 +273,11 @@ def allselect(request):
         for cart in carts:
             cart.is_select = sele_status
             cart.save()
+            if not cart.is_select: continue
+            cart_count += 1
             count_total += cart.total
-        result["count_total"] = count_total if sele_status else 0
+        result["count_total"] = count_total
+        result["cart_count"] = cart_count
     else:
         goods = Goods.objects.get(pk=int(request.GET.get("goodsid")))
         cart = Cart.objects.get(user=user, goods=goods)
@@ -276,14 +285,16 @@ def allselect(request):
         cart.save()
 
         new_cart = Cart.objects.filter(user=user)
-        all_select = True if len(new_cart) else False
+        all_select = True
         for newc in new_cart:
             if not newc.is_select:
                 all_select = False
                 continue
+            cart_count += 1
             count_total += newc.total
         result["all_select"] = all_select
         result["count_total"] = count_total
+        result["cart_count"] = cart_count
     return JsonResponse(result)
 
 
@@ -298,16 +309,63 @@ def delcart(request):
     for cartid in cart_id_list:
         Cart.objects.get(pk=int(cartid)).delete()
     carts = Cart.objects.filter(user=User.objects.get(token=request.session.get("token")))
-
+    cart_count = 0
     count_total = 0
     all_select = True if len(carts) else False
     for cart in carts:
         if not cart.is_select:
             all_select = False
             continue
+            cart_count += 1
         count_total += cart.total
     result = {
         "count_total": count_total,
         "all_select": all_select,
+        "cart_count": cart_count,
     }
     return JsonResponse(result)
+
+
+# 下单
+def underorder(request):
+    user = User.objects.get(token=request.session.get("token"))
+    # 生成订单
+    order = Order.createOrder(user, str(int(time.time())) + str(random.randrange(10000, 100000)))
+    order.save()
+    # 订单商品
+    carts = Cart.objects.filter(user=user).filter(is_select=True)
+    for cart in carts:
+        orderGoods = OrderGoods.createOrderGoods(order, cart.goods, cart.number)
+        orderGoods.save()
+        # 从购物车移除
+        cart.delete()
+
+    result = {
+        "msg": "下单成功",
+        "status": 1,
+        "orderno": order.orderno  # 订单号
+    }
+
+    return JsonResponse(result)
+
+
+# 订单详情
+def orderinfo(request, order_no):
+    user = User.objects.get(token=request.session.get("token"))
+    order = Order.objects.get(orderno=order_no)
+    order_goods_list = order.ordergoods_set.all()
+
+
+    goods_count = len(order_goods_list)
+    total_price = 0
+    for order_goods in order_goods_list:
+        total_price += order_goods.goods.price * order_goods.number
+
+    result = {
+        "order": order,
+        "username": user.uname,
+        "goods_count": goods_count,
+        "total_price": total_price,
+
+    }
+    return render(request, "orderinfo.html", result)

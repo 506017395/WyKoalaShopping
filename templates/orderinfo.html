@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="{% static 'css/cart.css' %}"/>
+    <link rel="stylesheet" href="{% static "css/orderinfo.css" %}"/>
     <script type="text/javascript" src="{% static 'js/jquery-1.12.0.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
-    <script src="{% static "js/cart1.js" %}"></script>
+    <script src="{% static "js/orderinfo.js" %}"></script>
 </head>
 <body style="position: relative;">
 <div id="header">
@@ -70,8 +69,8 @@
     <div class="park">
         <div class="park_right">
             <ul>
-                <li class="red">我的购物车</li>
-                <li>提交订单</li>
+                <li>我的购物车</li>
+                <li class="red">提交订单</li>
                 <li>选择支付方式</li>
             </ul>
         </div>
@@ -80,52 +79,53 @@
         <div class="car_box">
             <div class="f1">
                 <div class="div1">
-                    {% if all_select == True %}
-                        <input type="checkbox" checked="checked">
-                    {% else %}
-                        <input type="checkbox">
-                    {% endif %}<span>全选</span></div>
+                    {#                    {% if all_select == True %}#}
+                    {#                        <input type="checkbox" checked="checked">#}
+                    {#                    {% else %}#}
+                    {#                        <input type="checkbox">#}
+                    {#                    {% endif %}<span>全选</span>#}
+                </div>
                 <div class="div2">商品信息</div>
                 <div class="div3">单价(元)</div>
                 <div class="div4">数量</div>
                 <div class="div5">金额(元)</div>
-                <div class="div6">操作</div>
+                <div class="div6"></div>
             </div>
 
             <div class="cartinfo">
                 {#                <div class="cartinfo1">#}
                 {#                    <input type="checkbox"><span>杭州保税3号仓</span>#}
                 {#                </div>#}
-                {% for cart in carts %}
+                {% for ordergoods in order.ordergoods_set.all %}
                     <ul class="cartul">
-                        {% if cart.is_select == True %}
-                            <li class="cartli1"><input type="checkbox" checked="checked" value="{{ cart.goods_id }}">
-                                <input type="text" value="{{ cart.id }}" style="display: none;"></li>
-                        {% else %}
-                            <li class="cartli1"><input type="checkbox" value="{{ cart.goods_id }}">
-                                <input type="text" value="{{ cart.id }}" style="display: none;">
-                            </li>
-                        {% endif %}
-                        <li class="cartli2"><img id="0" src="{% static cart.goods.img %}">
+                        <li class="cartli1"></li>
+                        {#{% if cart.is_select == True %}#}
+                        {#<li class="cartli1"><input type="checkbox" checked="checked" value="{{ cart.goods_id }}">#}
+                        {#<input type="text" value="{{ cart.id }}" style="display: none;"></li>#}
+                        {#{% else %}#}
+                        {#<li class="cartli1"><input type="checkbox" value="{{ cart.goods_id }}">#}
+                        {#<input type="text" value="{{ cart.id }}" style="display: none;">#}
+                        {#</li>#}
+                        {#{% endif %}#}
+                        <li class="cartli2"><img id="0" src="{% static ordergoods.goods.img %}">
                         </li>
                         <li class="cartli3">
-                            {{ cart.goods.rated }}
+                            {{ ordergoods.goods.rated }}
                         </li>
                         <li class="cartli4">
-                            <span class="cartli4span1">{{ cart.goods.purchase }}</span><span
-                                class="cartli4span2">{{ cart.goods.price }}</span><span
+                            <span class="cartli4span1">{{ ordergoods.goods.purchase }}</span><span
+                                class="cartli4span2">{{ ordergoods.goods.price }}</span><span
                                 class="cartli4span3">特价</span>
                         </li>
                         <li class="cartli5">
-                            <a class="a_left" goodsid="{{ cart.goods.id }}" numstatus="1">-</a><a
-                                class="a_num">{{ cart.number }}</a><a class="a_right" numstatus="2"
-                                                                      goodsid="{{ cart.goods.id }}">+</a>
+                             <span class="a_num">{{ ordergoods.number }}</span>
                         </li>
                         <li class="cartli6">
-                            {{ cart.total }}
+                            ￥{{ total_price }}
                         </li>
-                        <li class="cartli7">
-                            <a class="sele" cartid="{{ cart.id }}">删除</a><a class="cartli7a2">移入我的收藏</a></li>
+{#                        <li class="cartli7">#}
+{#                                                        <a class="sele">删除</a><a class="cartli7a2">移入我的收藏</a>#}
+{#                        </li>#}
                     </ul>
                 {% endfor %}
 
@@ -134,7 +134,7 @@
                         活动优惠：¥0.00
                     </div>
                     <div class="cartdiv2">
-                        商品应付总计：￥<span>{{ carts_total }}</span>
+                        商品应付总计：￥<span>{{ total_price }}</span>
                     </div>
                     <div class="cartdiv3">
                         预估税费：￥0.00
@@ -144,17 +144,16 @@
 
         </div>
         <div class="cartjs">
-            <div class="cartjs1">{% if all_select == True %}<input type="checkbox" checked="checked">{% else %}
-                <input type="checkbox">
-            {% endif %}<span class="cartjs1span1">全选</span><span class="cartjs1span2">删除选中商品</span>
+            <div class="cartjs1">
+                {#                <input type="checkbox"><span class="cartjs1span1">全选</span><span class="cartjs1span2">删除选中商品</span>#}
             </div>
-            <a href="{% url "K:underorder" %}" class="jiesuan">下&nbsp;&nbsp;&nbsp;&nbsp;单</a>
+            <a href="#" class="jiesuan">付&nbsp;&nbsp;&nbsp;&nbsp;款</a>
             <div class="cartjsdiv">
-                <p>已选商品<b class="B">{{ cart_count }}</b>件
-                    <span class="zongjia">总价(不含运费)</span><span class="money">{{ carts_total }}</span>
+                <p>共有商品<b class="B">{{ goods_count }}</b>件
+                    <span class="zongjia">总价(不含运费)</span><span class="money">{{ total_price }}</span>
                 </p>
                 <p class="youhui"><span>活动优惠：-￥0.00</span><span
-                        class="yingfu">商品应付总计：￥<span>{{ carts_total }}</span></span><span
+                        class="yingfu">商品应付总计：￥<span>{{ total_price }}</span></span><span
                         class="shuifei">商品税费：￥0.00</span>
                 </p>
             </div>

@@ -27,6 +27,7 @@ $(function () {
         $.get("/goodsnum/", {goodsid: goodsid, goodsnum: a_num, total: total, numstatus: numstatus}, function (data) {
             $(".cartdiv2 span,.yingfu span").html(data.total)
             // $("").html(data.total)
+            $(".money").html(data.total);
         });
     }
 
@@ -42,6 +43,8 @@ $(function () {
             // count_total
             // console.log(data.count_total)
             $(".cartdiv2 span,.yingfu span").html(data.count_total)
+            $(".B").html(data.cart_count);
+            $(".money").html(data.count_total);
         });
     });
 
@@ -58,6 +61,8 @@ $(function () {
             $(".f1 .div1 input,.cartjs1 input").prop("checked", data.all_select);
             // console.log(count_total)
             $(".cartdiv2 span,.yingfu span").html(data.count_total);
+            $(".B").html(data.cart_count);
+            $(".money").html(data.count_total);
         });
     });
 
@@ -68,6 +73,8 @@ $(function () {
             $this.parents(".cartul").remove()
             $(".f1 .div1 input,.cartjs1 input").prop("checked", data.all_select);
             $(".cartdiv2 span,.yingfu span").html(data.count_total);
+            $(".B").html(data.cart_count);
+            $(".money").html(data.count_total);
         });
     });
     // 删除选中的购物车
@@ -93,7 +100,18 @@ $(function () {
                 })
                 $(".f1 .div1 input,.cartjs1 input").prop("checked", data.all_select);
                 $(".cartdiv2 span,.yingfu span").html(data.count_total);
+                $(".B").html(data.cart_count);
+                $(".money").html(data.count_total);
             }
         });
+    });
+
+    $(".jiesuan").click(function () {
+        $.get("/underorder/", function (data) {
+            if (data.status == "1") {
+                window.open("/orderinfo/" + data.orderno +
+                    "/", target = "_self")
+            }
+        })
     });
 });

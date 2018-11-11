@@ -24,6 +24,7 @@ class Slideshow(models.Model):
     img = models.CharField(max_length=100)
 
 
+# 商品
 class Goods(models.Model):
     smallimg = models.CharField(max_length=100)  # 1 2
     img = models.CharField(max_length=100)
@@ -57,3 +58,34 @@ class Cart(models.Model):
     def createCart(cls, user, goods, number, total):
         cart = Cart(user=user, goods=goods, number=number, total=total)
         return cart
+
+
+# 订单
+class Order(models.Model):
+    user = models.ForeignKey(User)
+    # 创建时间
+    createtime = models.DateTimeField(auto_now_add=True)
+    # 状态
+    status = models.IntegerField(default=1)
+    # 订单号
+    orderno = models.CharField(max_length=256)
+
+    @classmethod
+    def createOrder(cls, user, order_no):
+        order = Order(user=user, orderno=order_no)
+        return order
+
+
+# 订单商品
+class OrderGoods(models.Model):
+    # 订单
+    order = models.ForeignKey(Order)
+    # 商品
+    goods = models.ForeignKey(Goods)
+    # 个数
+    number = models.IntegerField(default=1)
+
+    @classmethod
+    def createOrderGoods(cls, order, goods, number):
+        order_goods = OrderGoods(order=order, goods=goods, number=number)
+        return order_goods
