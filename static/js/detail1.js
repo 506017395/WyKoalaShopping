@@ -8,7 +8,7 @@ $(function () {
         var $goods_sum = $("#goodsSum").val()
         $.ajax({
             url: "/addcart/",
-            type: "post",
+            type: "get",
             headers: {"X-CSRFToken": $.cookie('csrftoken')},
             data: {
                 goodsid: $(this).attr("goodsid"),
@@ -16,36 +16,41 @@ $(function () {
             },
             dataType: "json",
             success: function (data) {
-                var endoffset = $(".car ul li .car_span2").offset();
-                var flyer = $("<img class='u-flyer'/>");
-                flyer.attr("src", $(".smallImg").attr("src"));
-                flyer.fly({
-                    start: {
-                        left: offset.left + $(".cost_span2").width() / 2,
-                        top: (offset.top - $(document).scrollTop()),
-                        width: 90,
-                        height: 90
-                    },
-                    end: {
-                        left: endoffset.left + 20,
-                        top: endoffset.top - $(document).scrollTop() + 20,
-                        width: 0,
-                        height: 0
-                    },
-                    onEnd: function () {
-                        //console.log("加入购物车成功!")
-                    }
-                });
-                $(".car ul li .car_span3").show();
-                $(".car ul li .car_span3").animate({top: "20px", opacity: "0"}, 1000, function () {
-                    $(".car ul li .car_span3").css({
-                        "position": "absolute",
-                        "top": "52px",
-                        "opacity": "1",
-                        "display": "none"
+                if (data.status == "1") {
+                    var endoffset = $(".car ul li .car_span2").offset();
+                    var flyer = $("<img class='u-flyer'/>");
+                    flyer.attr("src", $(".smallImg").attr("src"));
+                    flyer.fly({
+                        start: {
+                            left: offset.left + $(".cost_span2").width() / 2,
+                            top: (offset.top - $(document).scrollTop()),
+                            width: 90,
+                            height: 90
+                        },
+                        end: {
+                            left: endoffset.left + 20,
+                            top: endoffset.top - $(document).scrollTop() + 20,
+                            width: 0,
+                            height: 0
+                        },
+                        onEnd: function () {
+                            //console.log("加入购物车成功!")
+                        }
+                    });
+                    $(".car ul li .car_span3").show();
+                    $(".car ul li .car_span3").animate({top: "20px", opacity: "0"}, 1000, function () {
+                        $(".car ul li .car_span3").css({
+                            "position": "absolute",
+                            "top": "52px",
+                            "opacity": "1",
+                            "display": "none"
+                        })
                     })
-                })
-                count_cart()
+                    count_cart()
+                } else {
+                    console.log(1)
+                    window.open("/login/", target = "_self")
+                }
             }
         });
     });

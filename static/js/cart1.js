@@ -109,6 +109,7 @@ $(function () {
     $(".jiesuan").click(function () {
         $.get("/underorder/", function (data) {
             if (data.status == "1") {
+                $(".cartinfo cartul :checked").remove();
                 window.open("/orderinfo/" + data.orderno +
                     "/", target = "_self")
             }

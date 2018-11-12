@@ -210,8 +210,8 @@ def addcart(request):
         user = User.objects.get(token=token)  # 根据token查找用户
         result["username"] = user.uname
 
-        goods = Goods.objects.get(pk=request.POST.get("goodsid"))
-        goods_sum = int(request.POST.get("goodsSum"))
+        goods = Goods.objects.get(pk=request.GET.get("goodsid"))
+        goods_sum = int(request.GET.get("goodsSum"))
         total = goods.price * goods_sum
         cart_old = Cart.objects.filter(user=user, goods=goods)
         if cart_old:
@@ -224,8 +224,7 @@ def addcart(request):
         result["status"] = 1
         result["msg"] = "添加到购物车成功"
         result["goods_sum"] = goods_sum
-        return JsonResponse(result)
-    return render(request, "login.html")
+    return JsonResponse(result)
 
 
 # 统计购物车数量
@@ -341,7 +340,7 @@ def underorder(request):
     result = {
         "msg": "下单成功",
         "status": 1,
-        "orderno": order.orderno  # 订单号
+        "orderno": order.orderno,  # 订单号
     }
 
     return JsonResponse(result)
