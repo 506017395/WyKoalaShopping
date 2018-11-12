@@ -123,8 +123,8 @@ class AliPay(object):
 
 # 初始化操作
 appid = '2016091900548237'
-app_notify_url = "http://182.254.228.82/notice/"  # 支付完成后，支付宝调用的(通知服务端)
-return_url = "http://182.254.228.82/jump/"  # 支付完成后，客户端跳转的页面
+app_notify_url = "http://www.luozhangzhong.com/notice/"  # 支付完成后，支付宝调用的(通知服务端)
+return_url = "http://www.luozhangzhong.com/jump/"  # 支付完成后，客户端跳转的页面
 app_private_key_path = os.path.join(ALIPAY_ROOT, "koala_private_key.txt")  # 应用私钥
 alipay_public_key_path = os.path.join(ALIPAY_ROOT, "rsa_public_key.txt")  # 支付宝公钥
 

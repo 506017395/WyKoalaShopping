@@ -52,8 +52,6 @@ def login(request):
                 user_ok = user_p.first()
                 token = str(uuid.uuid5(uuid.uuid4(), "login"))
                 user_ok.token = token
-                # print(token, type(token))
-                # print(user.token, type(user.token))
                 user_ok.save()
                 print(user_ok.token)
                 request.session["token"] = user_ok.token
@@ -396,7 +394,7 @@ def pay(request):
         subject="{}-{}-{}".format(order.createtime, user.uname, order_no),  # 订单名称
         out_trade_no=order_no,  # 订单号
         total_amount=total,  # 付款金额
-        return_url="http://182.254.228.82/jump/"
+        return_url="http://www.luozhangzhong.com/jump/"
     )
 
     # 拼接支付网关
